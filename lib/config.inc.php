@@ -8,11 +8,11 @@
 		$ARR_CFGS["db_name"] = 'runorginal'; 
     	$ARR_CFGS["db_user"] = 'root';
 		$ARR_CFGS["db_pass"] = '';
-		define('SITE_SUB_PATH', '/runorginal/');		
+		define('SITE_SUB_PATH', '/runorginal/trunk/');		
 	} else { 
 		$ARR_CFGS["db_host"] = 'localhost';
-		$ARR_CFGS["db_name"] = 'fizzkart'; 
-    	$ARR_CFGS["db_user"] = 'fizz';
+		$ARR_CFGS["db_name"] = 'runorginal'; 
+    	$ARR_CFGS["db_user"] = 'runorginal';
 		$ARR_CFGS["db_pass"] = 'demodemo';
 		define('SITE_SUB_PATH', '/');
 	} 

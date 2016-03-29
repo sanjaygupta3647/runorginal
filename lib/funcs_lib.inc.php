@@ -1379,7 +1379,7 @@ class DAL {
 		$pageInfo[description] = $this->get_static_content('meta_description',$page);
 		$pageInfo[heading] = $this->get_static_content('heading',$page);
 		$pageInfo[body] = $this->get_static_content('body',$page);
-		$pageInfo[pimage] = $this->get_static_content('pimage',$page);
+		//$pageInfo[pimage] = $this->get_static_content('pimage',$page);
 		return $pageInfo;
 	}
 

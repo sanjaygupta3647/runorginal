@@ -109,7 +109,7 @@ if(isset($id)){
           </tr>
 
 		  
-	 <tr>
+	<!-- <tr>
 	  <td valign="top" class="label">Category Specification:</td>
 	  <td valign="top">
 	  <? if(!$id){?>
@@ -130,6 +130,13 @@ if(isset($id)){
 		<div class="addmore"></div>
 		<p style="float:right; margin-right:410px; cursor:pointer" title="Add More" onclick="addField();"><strong>Add More</strong></p>
       </td>
+	</tr>-->
+
+	<tr class="grey_">
+	  <td  width="25%"  class="label" valign="top">Size Info:</td>
+	  <td width="75%"><?=$adm->get_editor('sizeinfo', $cms->removeSlash($sizeinfo))?></td>
+    </tr> 
+
 	</tr> 
           <tr>
             <td class="label">Status:<span>*</span></td>

@@ -92,7 +92,7 @@
 <div class="div-tbl">
 <div class="cl"></div>
 
-<?php $hedtitle = "Store Category Management"; ?> 
+<?php $hedtitle = "Parent Category Management"; ?> 
     <? //$adm->h1_tag('Dashboard &rsaquo; Category Manager',$others)?>
     <h1><? if($parentId) {echo $cms->getSingleresult("select name from #_category where pid='$parentId'");}?></h1>
      
@@ -100,8 +100,8 @@
       <div class="title"  id="innertit">
         <h2 class="bradcrumb"> 
 		 
-			<a href="/tools" rel="v:url" property="v:title">Home</a> »
-			<a href="/tools/catalog/manage-category.php" rel="v:url" property="v:title">Store Category </a>  
+			<a href="<?=SITE_PATH_ADM?>" rel="v:url" property="v:title">Home</a> »
+			<a href="<?=SITE_PATH_ADM?>catalog/manage-category.php" rel="v:url" property="v:title">Parent Category </a>  
 			 
 		 
 	  </h2>

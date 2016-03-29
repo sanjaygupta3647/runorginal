@@ -97,8 +97,8 @@
       <?=$adm->alert()?>
       <div class="title"  id="innertit">
          <h2 class="bradcrumb"> 
-			<a href="/tools" rel="v:url" property="v:title">Home</a> »
-			<a href="/tools/catalog/manage-sub-category.php?parentId=<?=$parentId?>" rel="v:url" property="v:title"><?=$hedtitle?></a> 
+			<a href="<?=SITE_PATH_ADM?>" rel="v:url" property="v:title">Home</a> Â»
+			<a href="<?=SITE_PATH_ADM?>catalog/manage-sub-category.php?parentId=<?=$parentId?>" rel="v:url" property="v:title"><?=$hedtitle?></a> 
 	     </h2> 
       </div>
       <div class="tbl-contant">
@@ -107,8 +107,7 @@
             <td width="5%" align="center"><?=$adm->orders('#',false)?></td>
             <td width="5%" align="center" valign="middle"><?=$adm->check_all()?></td>
             <td width="20%" align="center"><?=$adm->orders('Product Category Name',true)?></td>
-            <td width="20%" align="center"><?=$adm->orders('Product Sub Category',true)?></td>
-            <td width="16%" align="center"><?=$adm->orders('Specifications',true)?></td>
+          
 			<td width="16%" align="center"><?=$adm->orders('Status',true)?></td>
             <td width="17%" align="center"><?=$adm->norders('Action')?></td>
           </tr>
@@ -118,20 +117,9 @@
             <td align="center"><?=$adm->check_input($pid)?></td>
             <td align="center">
              <?=$name?>
-			<?  // echo $name; 
-			/*else {
-				$getPid = $cms->getSingleresult("select parentId from #_cate where pid='$pid'");
-				echo $cms->getSingleresult("select name from #_cate where parentId='$getPid'");
-			}*/?> 
+		 
 			</td>
-             <td align="center">
-			<? 
-			//$getPid = $cms->getSingleresult("select parentId from #_cate where pid='$pid'");
-			$tot =$cms->db_query("select pid from #_category where parentId='$pid'");
-		     $cnt = mysql_num_rows($tot);?>
-			 <a href="<?=SITE_PATH_ADM.CPAGE."/manage-pro-sub-category.php?parentId=".$pid?>">View(<?=$cnt?>)</a> <?php  
-			//if($parentId){ echo $cms->getSingleresult("select name from #_cate where pid='$parentId'");}?></td>
-			 <td align="center" class="<?=strtolower($status)?>"><?=$specifications?></td>
+             
             <td align="center" class="<?=strtolower($status)?>"><?=$status?></td>
             <td align="center">
 			<?=$adm->cataction(SITE_PATH_ADM.CPAGE."/add-sub-category.php",$pid."&parentId=".$parentId, CPAGE.'/manage-sub-category.php',$start)?>

@@ -46,8 +46,8 @@
     <tr class="t-hdr">
       <td width="6%" align="center"><?=$adm->orders('#',false)?></td>
       <td width="6%" align="center" valign="middle"><?=$adm->check_all()?></td>
-      <td width="25%" align="center"><?=$adm->orders('Title',true)?></td>
-       
+      <td width="25%" align="center"><?=$adm->orders('Title',true)?></td> 
+	  <td width="11%" align="center"><?=$adm->orders('#',true)?></td>
 	  <td width="11%" align="center"><?=$adm->orders('Status',true)?></td>
       <td width="12%" align="center"><?=$adm->norders('Action')?></td>
     </tr>
@@ -56,7 +56,8 @@
     <td align="center"><?=$nums?></td>
     <td align="center"><?=$adm->check_input($pid)?></td>
     <td align="center"><?=$name?></td>
-     <td align="center" class="<?=strtolower($status)?>"><?=$status?></td>
+	<td align="center"><div style="height:25px; width:50px;background-color:#<?=$colorcode?>"></div></td>
+    <td align="center" class="<?=strtolower($status)?>"><?=$status?></td>
 	<td align="center"><?=$adm->action(SITE_PATH_ADM.CPAGE."?mode=add&start=".$_GET['start'],$pid)?></td>
     </tr>
     <?php $nums++;}}else{ echo $adm->rowerror(6);}?>   

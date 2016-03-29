@@ -16,11 +16,8 @@
           <ul>
             <li style="margin:10px;"><select  name="pcat_id" class="txt medium" id="pcatId">
 			<option value="">----Select Product Category----</option><?php
-			$rsAdmins=$cms->db_query("select pid,name from #_category where parentId='0' order by name");
- 				while($catRes2=$cms->db_fetch_array($rsAdmins)){ 
-						$parr[] = $catRes2[pid];
-					}
-					$cateqry=$cms->db_query("select pid,name from #_category   where parentId in (".implode(',',$parr).") order by name");
+			 
+					$cateqry=$cms->db_query("select pid,name from #_category   where parentId = '0' order by name");
 					if(mysql_num_rows($cateqry)){
 						while($catRes=$cms->db_fetch_array($cateqry)){?>
 							<option value="<?=$catRes[pid]?>" <?=($parent==$catRes[pid])?'selected="selected"':''?> ><?=stripslashes($catRes[name])?></option><?php

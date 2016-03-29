@@ -31,7 +31,7 @@
 	$start = intval($start);
 	$pagesize = intval($pagesize)==0?$pagesize=DEF_PAGE_SIZE:$pagesize;
 	$columns = "select * ";
-	$sql = " from #_pages where store_user_id = '0' and  ".(($subpageid)?" `subpageid` = '".$subpageid."' ":" `subpageid` = '0' ");
+	$sql = " from #_pages where 1 ";
 	$order_by == '' ? $order_by = 'pid' : true;
 	$order_by2 == '' ? $order_by2 = 'desc' : true;
 	$sql_count = "select count(*) ".$sql; 
@@ -59,8 +59,8 @@
    
     <td align="center"><?=$adm->check_input($pid)?></td>
       
-    <td align="center"><?=ucwords(str_replace('-',' ',$url))?></td> 
     <td align="center"><?=$heading?></td> 
+    <td align="center"><?=$title?></td> 
     <td align="center" class="<?=strtolower($status)?>"><?=$status?></td>
 	<td align="center"><?=$adm->action(SITE_PATH_ADM.CPAGE."?mode=add&start=".$_GET['start'],$pid)?></td> 
     </tr>

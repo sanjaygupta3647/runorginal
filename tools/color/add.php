@@ -16,7 +16,7 @@ if($cms->is_post_back()){
 	$cms->redir($path, true);
 }	
 if(isset($id)){
-	$rsAdmin=$cms->db_query("select * from #_color where pid='".$id."' and store_user_id = '".$_SESSION[uid]."'");
+	$rsAdmin=$cms->db_query("select * from #_color where pid='".$id."' ");
 	$arrAdmin=$cms->db_fetch_array($rsAdmin);
 	@extract($arrAdmin);
 }

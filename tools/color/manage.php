@@ -31,7 +31,7 @@
 	$start = intval($start);
 	$pagesize = intval($pagesize)==0?$pagesize=DEF_PAGE_SIZE:$pagesize;
 	$columns = "select * ";
-	$sql = " from #_color where store_user_id = '".$_SESSION[uid]."' ";
+	$sql = " from #_color where 1 ";
 	$order_by == '' ? $order_by = 'pid' : true;
 	$order_by2 == '' ? $order_by2 = 'desc' : true;
 	$sql_count = "select count(*) ".$sql; 

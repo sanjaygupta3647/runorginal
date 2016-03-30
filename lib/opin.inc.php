@@ -1,5 +1,7 @@
 <?php
-	@session_start(); 
+	@session_start();
+	@error_reporting(E_ALL ^ E_NOTICE);
+	ini_set('display_errors', '0');
 	$qry=$_GET['q']; 
 	 $items=explode("/",$qry); 
 	if(count($items)!=0){
@@ -12,8 +14,8 @@
 	@extract($_GET);
 	@extract($_SERVER);
 	@extract($_SESSION); 
-	@error_reporting(E_ALL ^ E_NOTICE);
-	ini_set('display_errors', '0'); 
+	/*@error_reporting(E_ALL ^ E_NOTICE);
+	ini_set('display_errors', '0');*/
 	ini_set('register_globals', 'on');	
 	ini_set('memory_limit', '800M');
 	ini_set(max_upload_filesize,"300M");	

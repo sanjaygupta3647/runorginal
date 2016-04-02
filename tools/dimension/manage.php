@@ -55,7 +55,7 @@
     <tr <?=$adm->even_odd($nums)?>>
     <td align="center"><?=$nums?></td>
     <td align="center"><?=$adm->check_input($pid)?></td>
-    <td align="center"><?=$d_name?></td>
+    <td align="center"><?=$name?></td>
      <td align="center" class="<?=strtolower($status)?>"><?=$status?></td>
 	<td align="center"><?=$adm->action(SITE_PATH_ADM.CPAGE."?mode=add&start=".$_GET['start'],$pid)?></td>
     </tr>

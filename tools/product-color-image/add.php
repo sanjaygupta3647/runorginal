@@ -13,11 +13,9 @@ if($cms->is_post_back()){
 		}
 		//$cms->redir(SITE_PATH_ADM.CPAGE, true);
 	
-	if(isset($_GET['start']) && $_GET['start'] > 0) {
-		$path = SITE_PATH_ADM.CPAGE."/index.php?start=".$_GET['start'];
-	} else {
-		$path = SITE_PATH_ADM.CPAGE;
-	}
+ 
+    $path = SITE_PATH_ADM.CPAGE."?prod_id=".$prod_id;
+	 
 	$cms->redir($path, true);	
 	
 }

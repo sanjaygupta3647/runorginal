@@ -1,13 +1,13 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 <?php 
-	if($action=='del'){
-		$cms->db_query("delete from #_products_cimage where pid in ($id)");
+	if($action=='del'){ 
 		$rsAdminw=$cms->db_scalar("select count(*) from #_products_cimage where pid in ($id)");
 		if($rsAdminw){
 			$cms->db_query("delete from #_products_cimage where catid in ($id)");
 		}			
 		$adm->sessset('Record has been deleted', 'e');
-		$cms->redir(SITE_PATH_ADM.CPAGE, true);
+		$path = SITE_PATH_ADM.CPAGE."?prod_id=".$prod_id;
+		$cms->redir($path, true);
 		exit;
 	}
 	if($cms->is_post_back()){
@@ -29,7 +29,8 @@
 				default:
 			}
 		}
-		$cms->redir(SITE_PATH_ADM.CPAGE, true);
+		$path = SITE_PATH_ADM.CPAGE."?prod_id=".$prod_id;
+		$cms->redir($path, true);
 		exit;
 	}
 	$start = intval($start);
@@ -54,6 +55,7 @@
       <td width="5%" align="center"><?=$adm->orders('#',true)?></td>
 	  <td width="13%" align="center"><?=$adm->orders('Front',true)?></td> 
 	  <td width="13%" align="center"><?=$adm->orders('Back',true)?></td> 
+	  <td width="9%" align="center"><?=$adm->norders('Status')?></td>
 	  <td width="9%" align="center"><?=$adm->norders('Action')?></td>
     </tr>
     <?php if($reccnt){ $nums=1; while ($line = $cms->db_fetch_array($result)){@extract($line);
@@ -67,7 +69,7 @@
 	<td align="center"><div style="height:25px; width:50px;background-color:#<?php echo $cms->getSingleresult("select colorcode from #_color where pid = '$color_id' ");?>"></div></td> 
 	<td width="15%" align="center"><img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$front?>" width="100"></td> 
 	<td width="15%" align="center"><img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$back?>" width="100"></td> 
-	
+	<td align="center"><?=$status?></td>
     <td align="center"><?=$adm->action(SITE_PATH_ADM.CPAGE."?mode=add&prod_id=".$_GET['prod_id'],$pid)?></td>
     </tr>
     <?php $nums++;}}else{ echo $adm->rowerror(7);}?>   

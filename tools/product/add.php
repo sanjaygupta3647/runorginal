@@ -2,7 +2,9 @@
 <?php 
 if($cms->is_post_back()){  
 	$_POST[url] = $adm->baseurl($_POST[title]);
- 
+	if(count($_POST[size])){
+		$_POST[psize] = implode(',',$_POST[size]);
+	}
 	if($updateid){
 		$cms->sqlquery("rs","products",$_POST,'pid',$updateid); 
 		$adm->sessset('Record has been updated', 's');
@@ -61,7 +63,8 @@ if(isset($id)){
     </tr>
 	<tr  class="grey_">
       <td width="25%" valign="top" class="label">Meta title:</td>
-      <td width="75%"><textarea name="meta_title" cols="80" rows="5" id="meta_title"><?=$meta_title?></textarea></td>
+      <td width="75%"><input type="text" name="meta_title"  lang="R" title="Title" class="txt medium" value="<?=$meta_title?>" />
+	  </td>
     </tr>
     
    <tr>
@@ -71,6 +74,24 @@ if(isset($id)){
 	<tr  class="grey_">
 	  <td valign="top" class="label">Meta description :</td> 
 	  <td><textarea name="meta_description" cols="80" rows="5" id="meta_description"><?=$meta_description?></textarea></td>
+    </tr>
+
+	<tr  class="grey_">
+	  <td valign="top" class="label">Size :</td> 
+	  <td><?php  
+	      if($psize){
+			$arr = explode(',',$psize);
+		  }else{
+			$arr = array();
+		  }
+	      $result = $cms->db_query("Select name from #_dimension where status = 'Active' ");
+		  while ($d = $cms->db_fetch_array($result)){ 
+				?><div style="height:25px;float: left;margin: 5px;">
+				<input type="checkbox" name="size[]" <?=(in_array($d[name],$arr))?'checked':''?> value="<?=$d[name]?>" /> &nbsp; <?=$d[name]?></div><?php
+		  }
+		  ?>    
+    
+	  </td>
     </tr>
 	 
 	 <tr>
@@ -101,12 +122,17 @@ if(isset($id)){
 		 <?=$adm->get_editor('body1', stripslashes($body1))?> 
       </td>
 	</tr> -->
+	  
+	  
+	  
 
 	 
  
 	
 	  
+	  	  
 	  
+
   
 	 <tr>
       <td width="25%"  class="label">Price:</td>

@@ -7,13 +7,14 @@
 <div class="div-tbl">
 <div class="cl"></div>
 	<? //$adm->h1_tag('Dashboard &rsaquo; Email Alerts Manager',((!$mode)?$others:$others2))?>
-<?php $hedtitle = "Dimension Management"; ?>  
+<?php $hedtitle = "Size & Dimension Management"; ?>  
     <?=$adm->alert()?>
       <div class="title"  id="innertit">
        <?=$adm->heading(((!$mode)?'Dimension Manager':'Add/Update Dimension'))?>
         </div>
       <div class="tbl-contant"><?php if($mode){include("add.php");}else{include("manage.php");}?></div>
-       <div class="cl"></div>
+      <div class="cl"></div>
+	  <?php include("../inc/paging.inc.php")?>
     </div>
   </div> 
 <?php include("../inc/footer.inc.php")?></div>

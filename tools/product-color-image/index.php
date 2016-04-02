@@ -1,7 +1,11 @@
 <?php include("../../lib/opin.inc.php")?> 
 <?php define("CPAGE","gallery/")?>
 <?php include("../inc/header.inc.php");?>
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined('_JEXEC') or die('Restricted access'); 
+
+if(empty($_GET[prod_id])) $cms->redir(SITE_PATH_ADM."product", true);	 
+
+?>
 <div class="main">
 <header>
      
@@ -39,14 +43,16 @@
 <div class="div-tbl">
 <div class="cl"></div>
 <? //$adm->h1_tag('Dashboard &rsaquo; Banner '.(($catid)?'':'Banner').' Manager',((!$mode)?$others:$others2))?>
-<?php $hedtitle = "Product color & image"; ?>
+<?php $P = $cms->getSingleresult("select title from #_products where pid = '$prod_id' "); ?> 
+<?php $hedtitle = "Manage color & image of $P "; ?>
       <div class="internal-box"><?=$adm->alert()?>
       <div class="title"  id="innertit">
-        <?=$adm->heading(((!$mode)?''.(($catid)?'':'Banner').' Manager':'Add/Update Banner '.(($catid)?'':'Album')))?>
+        <?=$adm->heading($hedtitle)?>
         </div>
        <div class="tbl-contant"><?php if($mode){include("add.php");}else{include("manage.php");}?> </div>
     </div>
     <div class="cl"></div>
+	 <?php include("../inc/paging.inc.php")?>
     </div>
   </div> 
 <?php include("../inc/footer.inc.php")?></div>

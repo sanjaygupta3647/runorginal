@@ -63,6 +63,7 @@ if(!$_SESSION["ses_adm_id"]){$cms->redir(SITE_PATH_ADM."login");}
             <li ><a href="<?=SITE_PATH_ADM?>content/">Manage Pages</a> </li> 
 			<li ><a href="<?=SITE_PATH_ADM?>color/">Manage Color</a> </li>
 			<li ><a href="<?=SITE_PATH_ADM?>catalog/manage-category.php">Category</a></li> 
+			<li ><a href="<?=SITE_PATH_ADM?>dimension">Size & Dimension</a></li> 
           </ul>
         
       </li> 
@@ -86,21 +87,22 @@ if(!$_SESSION["ses_adm_id"]){$cms->redir(SITE_PATH_ADM."login");}
 			<ul>   
 				
 				  
-				<li <?=(!in_array('E-mail Alerts',$perm))?'style="display:none;"':''?>><a href="<?=SITE_PATH_ADM?>catalog/subscribers.php">E-mail Alerts</a></li>
+				<!-- <li <?=(!in_array('E-mail Alerts',$perm))?'style="display:none;"':''?>><a href="<?=SITE_PATH_ADM?>catalog/subscribers.php">E-mail Alerts</a></li>-->
 				 
 			</ul>
 		</li> 
 		 
 		<li><a href="<?=SITE_PATH_ADM?>slider/">Slide Banner</a>
 			<ul>
-				<li <?=(!in_array('Slide Banner',$perm))?'style="display:none;"':''?>><a href="<?=SITE_PATH_ADM?>slider/">Slide Banner</a></li> 
+				<!--<li <?=(!in_array('Slide Banner',$perm))?'style="display:none;"':''?>><a href="<?=SITE_PATH_ADM?>slider/">Slide Banner</a></li> -->
 				 
 
 			</ul>
 		</li> 
+
 	   <li>
-			<a href="<?=SITE_PATH_ADM?>catalog/add-store-banner.php/">Others</a>
-			<ul> 
+			<a href="#">Others</a>
+			<!-- <ul> 
 				<li <?=(!in_array('Manage Country',$perm))?'style="display:none;"':''?>><a href="<?=SITE_PATH_ADM?>country/">Manage Country</a></li> 
 				<li <?=(!in_array('Manage City',$perm))?'style="display:none;"':''?>><a href="<?=SITE_PATH_ADM?>city/">Manage City</a></li>
 				<li <?=(!in_array('Manage Market',$perm))?'style="display:none;"':''?>><a href="<?=SITE_PATH_ADM?>market/">Manage Market</a></li> 
@@ -108,7 +110,7 @@ if(!$_SESSION["ses_adm_id"]){$cms->redir(SITE_PATH_ADM."login");}
 				<li <?=(!in_array('Shipping Area',$perm))?'style="display:none;"':''?>><a href="<?=SITE_PATH_ADM?>ship-area">Shipping Area</a></li> 
 				 
 				  
-			</ul>
+			</ul>-->
 		</li>  
 		  
      </ul>

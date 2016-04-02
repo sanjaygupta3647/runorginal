@@ -1,0 +1,5 @@
+ALTER TABLE `fz_products_cimage` ADD `status` ENUM('Active','Inactive') NOT NULL DEFAULT 'Active' AFTER `back`;
+
+ALTER TABLE `fz_dimension` CHANGE `d_name` `name` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE `fz_products` ADD `psize` VARCHAR(300) NOT NULL AFTER `url`;

@@ -2159,7 +2159,10 @@ h4.order-subhead {
 .strength-indicator_visualbar[data-strength="Strong"] li {
     background: #2CAF85
 }
-
+li.strength-indicator_segement{
+    display: inline-block;
+    width: 25%;
+}
 .strength-indicator_segement {
     list-style: none;
     box-sizing: border-box;

@@ -39,14 +39,14 @@
 
 <section class="form-box-2">
     <div class="col-md-6 col-md-offset-3 col-xs-12">
-
+        <div id="reg-final-message" class="form-group" style="display: none;"><h3></h3></div>
         <div class="form-group">
             <input type="text" id="register-frm-email" class="register-frm form-control" placeholder="Email Address"/>
             <h6></h6>
         </div>
 
         <div class="form-group">
-            <input type="text" id="register-frm-password" class="register-frm form-control" placeholder="Password (At Least 8 Characters)"/>
+            <input type="text" data-validate="false" id="register-frm-password" class="register-frm form-control" placeholder="Password (At Least 8 Characters)"/>
             <h6></h6>
             <div class="strength-indicator" data-strength-indicator-for="signup">
                 <ul class="strength-indicator_visualbar" data-strength="">
@@ -55,7 +55,7 @@
                     <li class="strength-indicator_segement"></li>
                     <li class="strength-indicator_segement"></li>
                 </ul>
-                <div class="strength-indicator_label">Password Strength: <strong id="password-strength">Fair</strong>
+                <div class="strength-indicator_label">Password Strength: <strong id="password-strength"></strong>
                 </div>
             </div>
         </div>

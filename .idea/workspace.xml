@@ -25,8 +25,8 @@
       <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/asset/js/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+            <state vertical-scroll-proportion="-10.551724">
+              <caret line="161" column="56" selection-start-line="161" selection-start-column="56" selection-end-line="161" selection-end-column="56" />
               <folding>
                 <element signature="e#0#45#0" expanded="false" />
               </folding>
@@ -34,12 +34,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ajax.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/site/ajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.26333907">
+              <caret line="9" column="146" selection-start-line="9" selection-start-column="146" selection-end-line="9" selection-end-column="146" />
+              <folding>
+                <marker date="1460488729803" expanded="true" signature="135:200" placeholder="SELECT usern..#_user..." />
+                <marker date="1460488729803" expanded="true" signature="274:333" placeholder="SELECT COUNT..#_user..." />
+                <marker date="1460488729803" expanded="true" signature="433:476" placeholder="INSERT INTO ..." />
+                <marker date="1460488729803" expanded="true" signature="433:492" placeholder="INSERT INTO ..." />
+                <marker date="1460488729803" expanded="true" signature="433:514" placeholder="INSERT INTO ..." />
+                <marker date="1460488729803" expanded="true" signature="433:528" placeholder="INSERT INTO ..." />
+                <marker date="1460488729803" expanded="true" signature="433:546" placeholder="INSERT INTO ..." />
+                <marker date="1460488729803" expanded="true" signature="433:568" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arun-alter-query.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/arun-alter-query.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.6296296">
+              <caret line="2" column="68" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/site/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6781411">
-              <caret line="51" column="55" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="55" />
-              <folding />
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="41" column="82" selection-start-line="41" selection-start-column="82" selection-end-line="41" selection-end-column="82" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#2;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/asset/css/my-syle.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2106" column="3" selection-start-line="2106" selection-start-column="3" selection-end-line="2106" selection-end-column="3" />
+              <caret line="2163" column="14" selection-start-line="2163" selection-start-column="14" selection-end-line="2163" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -82,11 +113,12 @@
         <option value="$PROJECT_DIR$/site/add-new-work.php" />
         <option value="$PROJECT_DIR$/site/add-new-post.php" />
         <option value="$PROJECT_DIR$/inc/header.php" />
-        <option value="$PROJECT_DIR$/db/arun-alter-query.sql" />
         <option value="$PROJECT_DIR$/common_js.php" />
-        <option value="$PROJECT_DIR$/asset/js/init.js" />
         <option value="$PROJECT_DIR$/asset/css/my-syle.css" />
+        <option value="$PROJECT_DIR$/db/arun-alter-query.sql" />
         <option value="$PROJECT_DIR$/site/register.php" />
+        <option value="$PROJECT_DIR$/asset/js/init.js" />
+        <option value="$PROJECT_DIR$/site/ajax.php" />
       </list>
     </option>
   </component>
@@ -158,6 +190,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -247,7 +293,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="744" extended-state="0" />
+    <frame x="-8" y="0" width="1378" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2496329" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -411,14 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/arun-alter-query.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inc/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.56363636">
@@ -451,29 +489,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asset/js/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#45#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/asset/css/my-syle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2106" column="3" selection-start-line="2106" selection-start-column="3" selection-end-line="2106" selection-end-column="3" />
+          <caret line="2163" column="14" selection-start-line="2163" selection-start-column="14" selection-end-line="2163" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/arun-alter-query.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6296296">
+          <caret line="2" column="68" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/site/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6781411">
-          <caret line="51" column="55" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="55" />
-          <folding />
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="41" column="82" selection-start-line="41" selection-start-column="82" selection-end-line="41" selection-end-column="82" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/js/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.551724">
+          <caret line="161" column="56" selection-start-line="161" selection-start-column="56" selection-end-line="161" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#45#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26333907">
+          <caret line="9" column="146" selection-start-line="9" selection-start-column="146" selection-end-line="9" selection-end-column="146" />
+          <folding>
+            <marker date="1460488729803" expanded="true" signature="135:200" placeholder="SELECT usern..#_user..." />
+            <marker date="1460488729803" expanded="true" signature="274:333" placeholder="SELECT COUNT..#_user..." />
+            <marker date="1460488729803" expanded="true" signature="433:476" placeholder="INSERT INTO ..." />
+            <marker date="1460488729803" expanded="true" signature="433:492" placeholder="INSERT INTO ..." />
+            <marker date="1460488729803" expanded="true" signature="433:514" placeholder="INSERT INTO ..." />
+            <marker date="1460488729803" expanded="true" signature="433:528" placeholder="INSERT INTO ..." />
+            <marker date="1460488729803" expanded="true" signature="433:546" placeholder="INSERT INTO ..." />
+            <marker date="1460488729803" expanded="true" signature="433:568" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>

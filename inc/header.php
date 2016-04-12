@@ -6,7 +6,7 @@
                     <a href="#" class="pull-left">Sell Your Cart</a>
                 </div>
                 <div class="col-md-6">
-                    <a href="#" class="pull-right">sign in</a>
+                    <a href="sign-in" class="pull-right">sign in</a>
                 </div><!--end of col-6-->
             </div><!--end of row-->
         </div><!--end of container-->

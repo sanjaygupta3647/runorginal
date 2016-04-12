@@ -1,0 +1,1 @@
+CREATE TABLE `runorginal`.`fz_user` ( `pid` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(15) NOT NULL , `email` VARCHAR(50) NOT NULL , `password` VARCHAR(25) NOT NULL , `news` ENUM('No','Yes') NOT NULL DEFAULT 'No' , `coupon` ENUM('No','Yes') NOT NULL DEFAULT 'No' , `status` ENUM('Inactive','Active') NOT NULL DEFAULT 'Inactive' , PRIMARY KEY (`pid`)) ENGINE = InnoDB;

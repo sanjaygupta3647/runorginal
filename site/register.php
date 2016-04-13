@@ -28,7 +28,7 @@
 	<meta name="author" content="<?=(SITE_COMPANY)?SITE_COMPANY:''?> CDI" />
 	<meta name="keywords" content="%%keywords%%" />
 	<meta name="description" content="%%description%%" />
-	<?php include_once "common_css.php"; ?>
+	<?php include_once SITE_FS_PATH . "/common_css.php"; ?>
 </head>
 <body>
 <div class="main-container">
@@ -130,10 +130,10 @@
     <!--end of after bg color-->
 
 </section>
-
-
 <?php include "footer.php"; ?>
-<script src="asset/js/bootstrap.min.js" type="text/javascript"></script>
+
+</body>
+<?php include SITE_FS_PATH."/common_js.php"; ?>
 <script type="text/javascript">
     /**
      * Created by arunsingh on 4/12/2016.
@@ -316,6 +316,4 @@
 
     })(jQuery);
 </script>
-</body>
-
 </html>

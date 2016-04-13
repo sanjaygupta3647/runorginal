@@ -6,7 +6,11 @@
                     <a href="#" class="pull-left">Sell Your Cart</a>
                 </div>
                 <div class="col-md-6">
-                    <a href="sign-in" class="pull-right">sign in</a>
+                    <?php if(isset($_SESSION['uid']) && $_SESSION['uid'] > 0){?>
+                        <a href="sign-out" class="pull-right">Sign out</a>
+                    <?php }else{?>
+                        <a href="sign-in" class="pull-right">sign in</a>
+                    <?php }?>
                 </div><!--end of col-6-->
             </div><!--end of row-->
         </div><!--end of container-->
@@ -27,6 +31,12 @@
             </div><!--end of row-->
         </div><!--end of container-->
     </div><!--end of mid bar-->
+    <?php  if($header_alert){?>
+    <div class="flash-messages">
+        <div class="flash alert"><?=$header_alert;?></div>
+    </div>
+    <?php } ?>
+
     <div class="menu-bar">
         <div class="container">
             <div class="row">

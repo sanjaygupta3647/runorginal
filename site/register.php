@@ -135,10 +135,6 @@
 </body>
 <?php include SITE_FS_PATH."/common_js.php"; ?>
 <script type="text/javascript">
-    /**
-     * Created by arunsingh on 4/12/2016.
-     */
-
     (function($){
         function CheckPasswordStrength(password) {
             var regex = new Array();
@@ -157,7 +153,7 @@
             }
 
             //Validate for length of Password.
-            if (passed > 2 && password.length > 8) {
+            if (passed > 2 && password.length > 4) {
                 passed++;
             }
             return passed;
@@ -191,6 +187,11 @@
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
         }
+        function validateUsername(user){
+            if(user.trim() == ""){ return false;}
+            var re = /^([a-z\d]{4,})$/;
+            return re.test(user);
+        }
         if($("input.register-frm#register-frm-load").length){
             var username = $("input.register-frm#register-frm-username");
             var email = $("input.register-frm#register-frm-email");
@@ -220,15 +221,47 @@
             }
 
             username.blur(function(){
-                if(username.val().trim() != ''){
-                    $(this).valide();
+                if(validateUsername(username.val())){
+                    //$(this).valide();
+                    var option = {"username":$(this).val(), "action":"check-username"};
+                    $.ajax({
+                        url:"ms_file/ajax",
+                        type:"post",
+                        data:option,
+                        success: function (res) {
+                            var js = JSON.parse(res);
+                            if(js.success == "success"){
+                                username.valide();
+                            }else{
+                                username.invalide();
+                                username.next("h6").text(js.message);
+                                username.next("h6").show();
+                            }
+                        }
+                    });
                 }else{
                     $(this).invalide();
                 }
             });
             email.blur(function(){
                 if(validateEmail(email.val())){
-                    $(this).valide();
+                    //$(this).valide();
+                    var option = {"email":$(this).val(), "action":"check-email"};
+                    $.ajax({
+                        url:"ms_file/ajax",
+                        type:"post",
+                        data:option,
+                        success: function (res) {
+                            var js = JSON.parse(res);
+                            if(js.success == "success"){
+                                email.valide();
+                            }else{
+                                email.invalide();
+                                email.next("h6").text(js.message);
+                                email.next("h6").show();
+                            }
+                        }
+                    });
                 }else{
                     $(this).invalide();
                     $(this).next("h6").text('Please provide a valid email address.');

@@ -1,34 +1,51 @@
+<?php
+if ($cms->is_post_back()) {
+    if ($action == "runoriginal-login") {
+        $chkUser = $cms->getSingleresult("SELECT COUNT(*) FROM #_user WHERE username = '$lusername' AND password = '$password' ");
+        if($chkUser){
+            $sql = $cms->db_query("SELECT * FROM #_user WHERE username = '$lusername' AND password = '$password' ");
+            $res = $cms->db_fetch_array($sql);
+            $_SESSION['uid'] = $res['pid'];
+            $_SESSION['email'] = $res['email'];
+            $_SESSION['username'] = $res['username'];
+            $cms->redir(SITE_PATH,true);
+        }else{
+            $header_alert = "Invalid username or password - Remember to use your username, not your email address.";
+        }
+    }
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Run Original</title><!--%%title%%-->
-    <base href="<?=SITE_PATH?>">
+    <base href="<?= SITE_PATH ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-    <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+    <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/"/>
     <!-- Start: Meta Info -->
     <!--<meta property="og:image" content="" />-->
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <meta name="google-site-verification" content="YF0StaN8k3nLmmL5Bh48YgpXGNioIy3luUyOqYVJB-E" />
-    <meta name="DC.title" content="%%title%%" />
-    <meta name="DC.creator" content="<?=(SITE_COMPANY)?SITE_COMPANY:''?> CDI" />
-    <meta name="DC.subject" content="Meta-data" />
-    <meta name="DC.description" content="%%description%%" />
-    <meta name="DC.publisher" content="<?=(SITE_COMPANY)?SITE_COMPANY:''?> CDI" />
-    <meta name="DC.contributor" content="<?=(SITE_COMPANY)?SITE_COMPANY:''?> CDI" />
-    <meta name="DC.date" content="%%datetime%%" scheme="DCTERMS.W3CDTF" />
-    <meta name="DC.type" content="Text" scheme="DCTERMS.DCMIType" />
-    <meta name="DC.format" content="text/html" scheme="DCTERMS.IMT" />
-    <meta name="DC.identifier" content="%%uri%%" scheme="DCTERMS.URI" />
-    <meta name="DC.source" content="http://www.w3.org/TR/html401/struct/global.html#h-7.4.4" scheme="DCTERMS.URI" />
-    <meta name="DC.language" content="%%lang%%" scheme="DCTERMS.RFC3066" />
-    <meta name="DC.relation" content="http://dublincore.org/" scheme="DCTERMS.URI" />
-    <meta name="DC.coverage" content="<?=(SITE_COMPANY)?SITE_COMPANY:''?> CDI" scheme="DCTERMS.TGN" />
-    <meta name="DC.rights" content="All rights reserved" />
-    <meta name="author" content="<?=(SITE_COMPANY)?SITE_COMPANY:''?> CDI" />
-    <meta name="keywords" content="%%keywords%%" />
-    <meta name="description" content="%%description%%" />
+    <meta name="google-site-verification" content="YF0StaN8k3nLmmL5Bh48YgpXGNioIy3luUyOqYVJB-E"/>
+    <meta name="DC.title" content="%%title%%"/>
+    <meta name="DC.creator" content="<?= (SITE_COMPANY) ? SITE_COMPANY : '' ?> CDI"/>
+    <meta name="DC.subject" content="Meta-data"/>
+    <meta name="DC.description" content="%%description%%"/>
+    <meta name="DC.publisher" content="<?= (SITE_COMPANY) ? SITE_COMPANY : '' ?> CDI"/>
+    <meta name="DC.contributor" content="<?= (SITE_COMPANY) ? SITE_COMPANY : '' ?> CDI"/>
+    <meta name="DC.date" content="%%datetime%%" scheme="DCTERMS.W3CDTF"/>
+    <meta name="DC.type" content="Text" scheme="DCTERMS.DCMIType"/>
+    <meta name="DC.format" content="text/html" scheme="DCTERMS.IMT"/>
+    <meta name="DC.identifier" content="%%uri%%" scheme="DCTERMS.URI"/>
+    <meta name="DC.source" content="http://www.w3.org/TR/html401/struct/global.html#h-7.4.4" scheme="DCTERMS.URI"/>
+    <meta name="DC.language" content="%%lang%%" scheme="DCTERMS.RFC3066"/>
+    <meta name="DC.relation" content="http://dublincore.org/" scheme="DCTERMS.URI"/>
+    <meta name="DC.coverage" content="<?= (SITE_COMPANY) ? SITE_COMPANY : '' ?> CDI" scheme="DCTERMS.TGN"/>
+    <meta name="DC.rights" content="All rights reserved"/>
+    <meta name="author" content="<?= (SITE_COMPANY) ? SITE_COMPANY : '' ?> CDI"/>
+    <meta name="keywords" content="%%keywords%%"/>
+    <meta name="description" content="%%description%%"/>
     <?php include_once SITE_FS_PATH . "/common_css.php"; ?>
 </head>
 <body>
@@ -39,22 +56,26 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
+
                 <div class="box-left">
-                    <h3>Sign In</h3>
+                    <form action="" method="post">
+                        <h3>Sign In</h3>
 
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="usr" placeholder="User Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="pwd" placeholder="Password">
-                    </div>
+                        <div class="form-group">
+                            <input type="text" name="lusername" class="form-control" id="usr" placeholder="User Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" id="pwd" placeholder="Password">
+                        </div>
 
-                    <label class="checkbox-inline"><input type="checkbox" value=""><span style="font-size:12px;">Remeber Me</span>
+                        <label class="checkbox-inline"><input type="checkbox" value=""><span style="font-size:12px;">Remeber Me</span>
                         <span style="float:right"><a href="#" style="color:#666; text-decoration:underline;">Lost
                                 Password</a></span></label>
 
-                    <input type="submit" value="SIGN IN" class="btn btn-danger"/>
+                        <input type="submit" value="SIGN IN" class="btn btn-danger"/>
+                        <input type="hidden" name="action" value="runoriginal-login"/>
 
+                    </form>
                     <span class="facebook-or">OR</span>
 
                     <div class="facebook-auth">
@@ -92,7 +113,7 @@
 
                     <hr/>
 
-                    <a class="btn btn-default">Sign Up For Free</a>
+                    <a class="btn btn-default" href="register">Sign Up For Free</a>
                 </div>
             </div>
         </div>

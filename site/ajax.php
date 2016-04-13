@@ -2,9 +2,9 @@
 if($cms->is_post_back()){
     $ajaxArray = array();
     if($action == "Registration"){
-        $chkUser = $cms->getSingleresult("SELECT COUNT(*) username FROM #_user WHERE username = '$username'");
+        $chkUser = $cms->getSingleresult("SELECT COUNT(*) FROM #_user WHERE username = '$username'");
         if(!$chkUser){
-            $chkEmail = $cms->getSingleresult("SELECT COUNT(*) username FROM #_user WHERE email = '$email'");
+            $chkEmail = $cms->getSingleresult("SELECT COUNT(*) FROM #_user WHERE email = '$email'");
             if(!$chkEmail){
                 $reg_time = time();
                 $cms->db_query("INSERT INTO #_user SET username='$username', email='$email', password='$password', news='$news', coupon='$coupon', reg_time='$reg_time'");
@@ -20,6 +20,26 @@ if($cms->is_post_back()){
             $ajaxArray['success'] = 'fail';
             $ajaxArray['message'] = 'Username Alreday Exist. Please Enter Another.';
             $ajaxArray['trig'] = 'username';
+        }
+        echo json_encode($ajaxArray);
+    }
+    if($action == "check-username"){
+        $chkUser = $cms->getSingleresult("SELECT COUNT(*)  FROM #_user WHERE username = '$username'");
+        if(!$chkUser){
+            $ajaxArray['success'] = 'success';
+        }else{
+            $ajaxArray['success'] = 'fail';
+            $ajaxArray['message'] = 'Username Alreday Exist. Please Enter Another.';
+        }
+        echo json_encode($ajaxArray);
+    }
+    if($action == "check-email"){
+        $chkUser = $cms->getSingleresult("SELECT COUNT(*)  FROM #_user WHERE email = '$email'");
+        if(!$chkUser){
+            $ajaxArray['success'] = 'success';
+        }else{
+            $ajaxArray['success'] = 'fail';
+            $ajaxArray['message'] = 'Email Alreday Exist. Please Enter Another.';
         }
         echo json_encode($ajaxArray);
     }

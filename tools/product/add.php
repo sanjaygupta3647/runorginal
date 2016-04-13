@@ -5,6 +5,9 @@ if($cms->is_post_back()){
 	if(count($_POST[size])){
 		$_POST[psize] = implode(',',$_POST[size]);
 	}
+	if(count($_POST[color])){
+		$_POST[colors] = implode(',',$_POST[color]);
+	}
 	if($updateid){
 		$cms->sqlquery("rs","products",$_POST,'pid',$updateid); 
 		$adm->sessset('Record has been updated', 's');
@@ -93,6 +96,24 @@ if(isset($id)){
     
 	  </td>
     </tr>
+
+	<tr  class="grey_">
+	  <td valign="top" class="label">Color :</td> 
+	  <td><?php  
+	      if($colors){
+			$arr = explode(',',$colors);
+		  }else{
+			$arr = array();
+		  }
+	      $result = $cms->db_query("Select name from #_color where status = 'Active' ");
+		  while ($d = $cms->db_fetch_array($result)){ 
+				?><div style="height:25px;float: left;margin: 5px;">
+				<input type="checkbox" name="color[]" <?=(in_array($d[name],$arr))?'checked':''?> value="<?=$d[name]?>" /> &nbsp; <?=$d[name]?></div><?php
+		  }
+		  ?>    
+    
+	  </td>
+    </tr>
 	 
 	 <tr>
       <td width="25%"  class="label">Key Feature 1:</td>
@@ -115,14 +136,32 @@ if(isset($id)){
       <td width="75%"><input type="text" name="kf5"  class="txt medium"value="<?=$kf5?>" /></td>
     </tr>
 	 
-	<!--
-	<tr>
-	  <td valign="top" class="label">Short description:</td>
-	  <td valign="top">
-		 <?=$adm->get_editor('body1', stripslashes($body1))?> 
-      </td>
-	</tr> -->
-	  
+	 <?php if($front  and is_file($_SERVER['DOCUMENT_ROOT'].SITE_SUB_PATH."uploaded_files/orginal/".$front)==true){?>
+          <tr>
+            <td valign="top" class="label">&nbsp;</td>
+            <td valign="top"><img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$front?>" width="100"> &nbsp;&nbsp;
+            </td>
+          </tr>
+          <?php } ?>
+
+          <tr>
+            <td valign="top" class="label">Front Image:</td>
+            <td valign="top"> <input type="text" name="front" value="<?=$front?>" class="txt medium" id="upimg" />
+       <img onClick="window.open('<?=SITE_PATH_ADM."crop/imageupload.php?imgid=upimg&image=product&view=thumb&name=".$front?>','mywindow','width=900,height=400,left=200,scrollbars=yes, top=100,screenX=0,screenY=100')" src="<?=SITE_PATH_ADM?>images/clickhere.png" alt=""  class="img-click" /> <br /></td>
+          </tr>
+          
+        <?php if($back   and is_file($_SERVER['DOCUMENT_ROOT'].SITE_SUB_PATH."uploaded_files/orginal/".$back)==true){?>
+          <tr>
+            <td valign="top" class="label">&nbsp;</td>
+            <td valign="top"><img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$back?>" width="100"> &nbsp;&nbsp;
+            </td>
+          </tr>
+          <?php } ?>
+          <tr>
+            <td valign="top" class="label">Back Image:</td>
+            <td valign="top"> <input type="text" name="back" value="<?=$back?>" class="txt medium" id="upimg2" />
+       <img onClick="window.open('<?=SITE_PATH_ADM."crop/imageupload.php?imgid=upimg2&image=product&view=big&name=".$back?>','mywindow','width=900,height=400,left=200,scrollbars=yes, top=100,screenX=0,screenY=100')" src="<?=SITE_PATH_ADM?>images/clickhere.png" alt="" class="img-click" /> <br /></td>
+          </tr>
 	  
 	  
 
@@ -157,56 +196,5 @@ if(isset($id)){
 	  <input type="submit" name="Submit" class="uibutton  loading" value="&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;" /></td>
     </tr>	
   </table>
- <script type="text/javascript">
-	$("#price").blur(function(){	
-	var price =  $(this).val();  
-	var offerprice =  $("#offerprice").val();
-	if(offerprice>price){
-		alert("Offerprice can not be greater then actual price");	
-		$("#offerprice").val(price);
-	}
-	if(!offerprice){
-		$("#offerprice").val(price);
-	}
-	
-	});
-	$("#pcatId").change(function(){
-		var catid = $(this).val();
-			$.ajax({ 
-			url: '<?=SITE_PATH_ADM.CPAGE?>/ajax.php?cat_id='+catid, 
-			success: function (data) {
-				$("#subcat").show();
-				$("#ajaxDiv").html(data); 
-			},
-			error: function (request, status, error) {
-			alert(request.responseText);
-			}
-			}); 
-			
-			$.ajax({ 
-			url: '<?=SITE_PATH_ADM.CPAGE?>/specification.php?cat_id='+catid, 
-			success: function (data) {
-				$(".specificationtr").show();
-				$("#ajaxDiv2").html(data); 
-			},
-			error: function (request, status, error) {
-			alert(request.responseText);
-			}
-			}); 
-		}); 
-
-		$("#change").click(function(){
-			var catid = $(this).attr('title');
-			$.ajax({ 
-			url: '<?=SITE_PATH_ADM.CPAGE?>/specification.php?cat_id='+catid, 
-			success: function (data) {
-				$(".specificationtr").show();
-				$("#ajaxDiv2").html(data); 
-			},
-			error: function (request, status, error) {
-			alert(request.responseText);
-			}
-			}); 
-		}); 
- </script>
+ 
  

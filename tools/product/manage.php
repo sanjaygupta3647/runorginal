@@ -59,8 +59,10 @@
       <td width="6%" align="center"><?=$adm->orders('#',false)?></td>
       <td width="6%" align="center" valign="middle"><?=$adm->check_all()?></td>
       <td width="15%" align="center"><?=$adm->orders('Name',true)?></td>  
-	  <td width="12%" align="center"><?=$adm->norders('#')?></td>
+	 
       <td width="15%" align="center"><?=$adm->orders('Category',true)?></td>
+
+	   <td width="20%" align="center"><?=$adm->norders('Images')?></td>
 	 
       <td width="15%" align="center"><?=$adm->orders('Price',true)?></td>
 	  <td width="15%" align="center"><?=$adm->orders('Status',true)?></td>
@@ -71,8 +73,20 @@
 		<td align="center"><?=$nums?></td>
 		<td align="center"><?=$adm->check_input($pid)?></td>
 		<td align="center"><?=$title?></td> 
-		<td align="center"><a href="<?=SITE_PATH_ADM?>product-color-image/?prod_id=<?=$pid?>">Manage Color & Image</a></td> 
+		
 		<td align="center"><?=$cms->getSingleresult("select name  from #_category where `pid` = '$cat_id'")?></td>
+
+		<td align="center">
+		<?php if($front  and is_file($_SERVER['DOCUMENT_ROOT'].SITE_SUB_PATH."uploaded_files/orginal/".$front)==true){?>
+			<img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$front?>" height="50">
+		<?php }?>
+
+		<?php if($back  and is_file($_SERVER['DOCUMENT_ROOT'].SITE_SUB_PATH."uploaded_files/orginal/".$back)==true){?>
+			<img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$back?>" height="50">
+		<?php }?>
+		
+		
+		</td> 
 		<td align="center"><?=$cms->price_format($price)?></td> 
 		<td align="center" class="<?=strtolower($status)?>"><?=$status?></td>
 		<td align="center"><?=$adm->action(SITE_PATH_ADM.CPAGE."?mode=add&start=".$_GET['start'],$pid)?></td>

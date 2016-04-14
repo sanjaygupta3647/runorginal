@@ -60,7 +60,7 @@
           <li><a href="#">T-Shirts</a></li>
     	  <li><a href="#">V-Neck</a></li>
     	  <li><a href="#">Long Sleeves</a></li>
-    	  <li><a href="#">Baseball ¾ Sleeves</a></li>
+    	  <li><a href="#">Baseball Â¾ Sleeves</a></li>
     	  <li><a href="#">Hoodies</a></li>
     	  <li><a href="#">Sweatshirts</a></li>
         </ul>

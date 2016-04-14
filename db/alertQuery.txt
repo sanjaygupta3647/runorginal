@@ -13,3 +13,6 @@ AFTER `front`;
 
 
 DROP TABLE fz_products_cimage
+
+
+ALTER TABLE `fz_setting` ADD `pfp` FLOAT NOT NULL AFTER `phone`;

@@ -29,11 +29,15 @@
     <meta name="author" content="<?=(SITE_COMPANY)?SITE_COMPANY:''?> CDI" />
     <meta name="keywords" content="%%keywords%%" />
     <meta name="description" content="%%description%%" />
-    <?php include_once SITE_FS_PATH . "/common_css.php"; ?>
+    <link href="asset/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+	<link href="asset/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+	<link href="asset/css/my-syle.css" rel="stylesheet" type="text/css" />
+	<link type="text/css" rel="stylesheet" href="asset/css/normalize.css" />
+    <link href="asset/css/owl.carousel.css" rel="stylesheet">
 </head>
 <body>
 
-<?php include_once "header.php"; ?>
+<?php include_once "inc/header.php"; ?>
 
 <section class="tag-line">
     <div class="container">
@@ -227,5 +231,7 @@
 <!--product wrap end-->
 <?php include_once "footer.php"; ?>
 </body>
-<?php include_once SITE_FS_PATH . "/common_js.php" ?>
+<script src="asset/js/jquery-1.12.1.js" type="text/javascript"></script>
+<script src="asset/js/html5.js" type="text/javascript" ></script>
+<script type="text/javascript" src="asset/js/script.js"></script>
 </html>

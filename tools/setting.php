@@ -36,17 +36,11 @@ $arrAdmin=$cms->db_fetch_array($rsAdmin);
 		  <td width="18%" align="left" valign="middle">Email:*</td>
 		  <td width="82%"><input  class="txt medium"  type="text" name="email" lang="RisEmail" title="Email" value="<?=$email?>" /></td>
 		  </tr>
-            <tr>
-            <td align="left" valign="middle">Paypal email:*</td>
-            <td><input name="paypal" type="text"  class="txt medium"  title="Paypal email" lang="RisEmail" value="<?=$paypal?>" xml:lang="RisEmail" /></td>
+         <tr>
+            <td align="left" valign="middle">Max Profit %:*</td>
+            <td><input name="pfp" type="text"  class="txt medium"  title="Max Profit" lang="R"  value="<?=$pfp?>"   /></td>
             </tr>
            <tr>
-            <td align="left" valign="middle">Paypal mode:*</td>
-            <td><select name="mode" class="txt" title="Paypal mode" lang="R" xml:lang="R">
-        <option value="live" <?=(($mode=='live')?'selected="selected"':'')?>>Live</option>
-        <option value="testing" <?=(($mode=='testing')?'selected="selected"':'')?>>Testing</option>
-      </select></td>
-           </tr>
            <tr>
           <td width="18%" align="left" valign="middle">Facebook:</td>
           <td width="82%"><input  class="txt medium"  type="text" name="fb" value="<?=$fb?>" /></td>

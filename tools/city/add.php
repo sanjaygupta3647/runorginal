@@ -12,9 +12,9 @@ if($cms->is_post_back()){
 		$cms->sessset('Record has been added', 's');
 	} 
 	  if(isset($_GET['start']) && $_GET['start'] > 0) {
-		$path = SITE_PATH_MEM.CPAGE."/index.php?start=".$_GET['start'];
+		$path = SITE_PATH_ADM.CPAGE."/index.php?start=".$_GET['start'];
 	} else {
-		$path = SITE_PATH_MEM.CPAGE;
+		$path = SITE_PATH_ADM.CPAGE;
 	}
 	$cms->redir($path, true);
 }	

@@ -33,7 +33,7 @@
 </head>
 <body>
 
-<?php include_once "header.php"; ?>
+<?php include_once "inc/header.php"; ?>
 
 
 <section class="upload-work">

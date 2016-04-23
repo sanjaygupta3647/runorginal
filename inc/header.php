@@ -1,4 +1,5 @@
 <header>
+<link rel="icon" href="images/favicon.ico" type="image/ico" sizes="16x16">
 <div class="top-bar">
 <div class="container">
 <div class="row">
@@ -7,11 +8,17 @@
 </div>
 <div class="col-md-6 profile-menu">
 <ul class="nav pull-right">
-					<?php if(isset($_SESSION['uid']) && $_SESSION['uid'] > 0){?>
-					  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        	<li><p>User Name</p></li>
-                            <li><a href="#">Profile</a></li>
+					<?php if(isset($_SESSION['uid']) && $_SESSION['uid'] > 0){
+					
+					$userData =$cms->db_query("select * from #_user where pid='".$_SESSION['uid']."' ");
+					$u=$cms->db_fetch_array($userData);
+					 
+					
+					
+					?>
+					  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?=$u['username']?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu"> 
+                            <li><a href="profile">Profile</a></li>
                             <li><a href="sign-out">Sign out</a></li>
                         </ul>
                     </li> 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2016 at 07:14 PM
+-- Generation Time: Apr 23, 2016 at 11:16 AM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -75,7 +75,13 @@ CREATE TABLE `fz_admin_lostlogin` (
 
 INSERT INTO `fz_admin_lostlogin` (`aid`, `ausername`, `atype`, `astatus`, `phone`, `ip`, `ipaddr`, `atmpt`, `submitdate`, `otp`, `ssid`) VALUES
 (1, 'admin', 'su', 'Active', '9711566000', 'sanjay-PC', '::1', 0, '2016-03-15 19:32:39', 0, ''),
-(2, 'admin', 'su', 'Active', '9711566000', 'sanjay-PC', '::1', 0, '2016-03-27 17:58:59', 0, '');
+(2, 'admin', 'su', 'Active', '9711566000', 'sanjay-PC', '::1', 0, '2016-03-27 17:58:59', 0, ''),
+(3, 'admin', 'su', 'Active', '9711566000', 'sanjay-PC', '::1', 0, '2016-03-30 18:02:20', 0, ''),
+(4, 'admin', 'su', 'Active', '9711566000', 'sanjay-PC', '::1', 0, '2016-04-02 08:35:48', 0, ''),
+(5, 'admin', 'su', 'Active', '9711566000', 'sanjay-PC', '::1', 0, '2016-04-03 09:32:44', 0, ''),
+(6, 'admin', 'su', 'Active', '9711566000', 'sanjay-PC', '::1', 0, '2016-04-13 19:32:00', 0, ''),
+(7, 'admin', 'su', 'Active', '9891617198', 'sanjay-PC', '::1', 0, '2016-04-17 16:04:47', 0, ''),
+(8, 'admin', 'su', 'Active', '9891617198', 'sanjay-PC', '::1', 0, '2016-04-23 04:14:29', 0, '');
 
 -- --------------------------------------------------------
 
@@ -119,7 +125,8 @@ INSERT INTO `fz_category` (`pid`, `name`, `body`, `sizeinfo`, `specifications`, 
 (16, 'Long Sleeves', 'Long Sleeves', '<table class="sizing-information_table">\r\n	<thead>\r\n		<tr class="sizing-information_row__header">\r\n			<th class="sizing-information_cell__header sizing-information_cell__icon">\r\n				&nbsp;</th>\r\n			<th class="sizing-information_cell__header">\r\n				S</th>\r\n			<th class="sizing-information_cell__header">\r\n				M</th>\r\n			<th class="sizing-information_cell__header">\r\n				L</th>\r\n			<th class="sizing-information_cell__header">\r\n				XL</th>\r\n			<th class="sizing-information_cell__header">\r\n				2XL</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Chest</th>\r\n			<td class="sizing-information_cell">\r\n				32&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				33&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				35&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				37&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				39&quot;</td>\r\n		</tr>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Length</th>\r\n			<td class="sizing-information_cell">\r\n				26.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28.5&quot;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<p>\r\n	&nbsp;</p>\r\n', '', '', 1, 0, '2016-03-27 18:42:17', 'Active'),
 (17, 'Baseball Â¾ Sleeves', 'Baseball Â¾ Sleeves', '<table class="sizing-information_table">\r\n	<thead>\r\n		<tr class="sizing-information_row__header">\r\n			<th class="sizing-information_cell__header sizing-information_cell__icon">\r\n				&nbsp;</th>\r\n			<th class="sizing-information_cell__header">\r\n				S</th>\r\n			<th class="sizing-information_cell__header">\r\n				M</th>\r\n			<th class="sizing-information_cell__header">\r\n				L</th>\r\n			<th class="sizing-information_cell__header">\r\n				XL</th>\r\n			<th class="sizing-information_cell__header">\r\n				2XL</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Chest</th>\r\n			<td class="sizing-information_cell">\r\n				32&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				33&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				35&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				37&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				39&quot;</td>\r\n		</tr>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Length</th>\r\n			<td class="sizing-information_cell">\r\n				26.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28.5&quot;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<p>\r\n	&nbsp;</p>\r\n', '', '', 1, 0, '2016-03-27 18:42:30', 'Active'),
 (18, 'Hoodies', 'Hoodies', '<table class="sizing-information_table">\r\n	<thead>\r\n		<tr class="sizing-information_row__header">\r\n			<th class="sizing-information_cell__header sizing-information_cell__icon">\r\n				&nbsp;</th>\r\n			<th class="sizing-information_cell__header">\r\n				S</th>\r\n			<th class="sizing-information_cell__header">\r\n				M</th>\r\n			<th class="sizing-information_cell__header">\r\n				L</th>\r\n			<th class="sizing-information_cell__header">\r\n				XL</th>\r\n			<th class="sizing-information_cell__header">\r\n				2XL</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Chest</th>\r\n			<td class="sizing-information_cell">\r\n				32&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				33&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				35&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				37&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				39&quot;</td>\r\n		</tr>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Length</th>\r\n			<td class="sizing-information_cell">\r\n				26.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28.5&quot;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<p>\r\n	&nbsp;</p>\r\n', '', '', 1, 0, '2016-03-27 18:42:52', 'Active'),
-(19, 'Sweatshirts', 'Sweatshirts', '<table class="sizing-information_table">\r\n	<thead>\r\n		<tr class="sizing-information_row__header">\r\n			<th class="sizing-information_cell__header sizing-information_cell__icon">\r\n				&nbsp;</th>\r\n			<th class="sizing-information_cell__header">\r\n				S</th>\r\n			<th class="sizing-information_cell__header">\r\n				M</th>\r\n			<th class="sizing-information_cell__header">\r\n				L</th>\r\n			<th class="sizing-information_cell__header">\r\n				XL</th>\r\n			<th class="sizing-information_cell__header">\r\n				2XL</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Chest</th>\r\n			<td class="sizing-information_cell">\r\n				32&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				33&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				35&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				37&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				39&quot;</td>\r\n		</tr>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Length</th>\r\n			<td class="sizing-information_cell">\r\n				26.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28.5&quot;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<p>\r\n	&nbsp;</p>\r\n', '', '', 1, 0, '2016-03-27 18:43:06', 'Active');
+(19, 'Sweatshirts', 'Sweatshirts', '<table class="sizing-information_table">\r\n	<thead>\r\n		<tr class="sizing-information_row__header">\r\n			<th class="sizing-information_cell__header sizing-information_cell__icon">\r\n				&nbsp;</th>\r\n			<th class="sizing-information_cell__header">\r\n				S</th>\r\n			<th class="sizing-information_cell__header">\r\n				M</th>\r\n			<th class="sizing-information_cell__header">\r\n				L</th>\r\n			<th class="sizing-information_cell__header">\r\n				XL</th>\r\n			<th class="sizing-information_cell__header">\r\n				2XL</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Chest</th>\r\n			<td class="sizing-information_cell">\r\n				32&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				33&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				35&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				37&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				39&quot;</td>\r\n		</tr>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Length</th>\r\n			<td class="sizing-information_cell">\r\n				26.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28.5&quot;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<p>\r\n	&nbsp;</p>\r\n', '', '', 1, 0, '2016-03-27 18:43:06', 'Active'),
+(20, 'T-Shirts', 'T-Shirts', '<table class="sizing-information_table">\r\n	<thead>\r\n		<tr class="sizing-information_row__header">\r\n			<th class="sizing-information_cell__header sizing-information_cell__icon">\r\n				&nbsp;</th>\r\n			<th class="sizing-information_cell__header">\r\n				S</th>\r\n			<th class="sizing-information_cell__header">\r\n				M</th>\r\n			<th class="sizing-information_cell__header">\r\n				L</th>\r\n			<th class="sizing-information_cell__header">\r\n				XL</th>\r\n			<th class="sizing-information_cell__header">\r\n				2XL</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Chest</th>\r\n			<td class="sizing-information_cell">\r\n				32&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				33&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				35&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				37&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				39&quot;</td>\r\n		</tr>\r\n		<tr class="sizing-information_row">\r\n			<th class="sizing-information_cell__header">\r\n				Length</th>\r\n			<td class="sizing-information_cell">\r\n				26.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				26&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				27.5&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28&quot;</td>\r\n			<td class="sizing-information_cell">\r\n				28.5&quot;</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<p>\r\n	&nbsp;</p>\r\n', '', '74361459676202.png', 2, 0, '2016-04-03 09:38:18', 'Active');
 
 -- --------------------------------------------------------
 
@@ -170,7 +177,7 @@ INSERT INTO `fz_city` (`pid`, `country_id`, `city`, `front_page_status`, `latitu
 (1569, 80, 'Gorakhpur', 'Inactive', '', '', 0, 0, '0000-00-00 00:00:00', 'Active'),
 (1570, 80, 'Greater Noida', 'Inactive', '', '', 1, 0, '0000-00-00 00:00:00', 'Active'),
 (1575, 80, 'Gurgaon', 'Inactive', '', '', 1, 0, '0000-00-00 00:00:00', 'Active'),
-(1576, 80, 'Guwahati', 'Inactive', '', '', 0, 0, '0000-00-00 00:00:00', 'Active'),
+(1576, 80, 'Guwahati', 'Inactive', '1563.2', '15.666', 1, 3, '0000-00-00 00:00:00', 'Active'),
 (1577, 80, 'Gwalior', 'Inactive', '', '', 0, 0, '0000-00-00 00:00:00', 'Active'),
 (1580, 80, 'Haldwani', 'Inactive', '', '', 0, 0, '0000-00-00 00:00:00', 'Active'),
 (1583, 80, 'Haridwar', 'Inactive', '', '', 0, 0, '0000-00-00 00:00:00', 'Active'),
@@ -246,7 +253,8 @@ INSERT INTO `fz_color` (`pid`, `colorcode`, `name`, `status`) VALUES
 (9, '080305', 'Dark Black', 'Active'),
 (10, '3B1625', 'Light Black', 'Active'),
 (13, 'D91427', 'pink', 'Active'),
-(18, '29E014', 'green', 'Active');
+(18, '29E014', 'green', 'Active'),
+(19, '4BD65E', 'Light Green', 'Active');
 
 -- --------------------------------------------------------
 
@@ -296,8 +304,7 @@ INSERT INTO `fz_country` (`pid`, `country`, `country_order`, `status`) VALUES
 
 CREATE TABLE `fz_dimension` (
   `pid` int(11) NOT NULL,
-  `d_name` varchar(50) NOT NULL,
-  `store_user_id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(50) NOT NULL,
   `status` enum('Active','Inactive') NOT NULL DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -305,110 +312,13 @@ CREATE TABLE `fz_dimension` (
 -- Dumping data for table `fz_dimension`
 --
 
-INSERT INTO `fz_dimension` (`pid`, `d_name`, `store_user_id`, `status`) VALUES
-(1, 'Meter', 0, 'Active'),
-(2, 'Kg', 0, 'Active'),
-(3, 'Gram', 0, 'Active'),
-(4, 'Ton', 0, 'Active'),
-(5, 'xl', 99, 'Active'),
-(6, '500gm', 118, 'Active'),
-(7, 'kg', 8, 'Active'),
-(14, '3', 82, 'Active'),
-(15, '4', 82, 'Active'),
-(16, '5', 82, 'Active'),
-(17, '6', 82, 'Active'),
-(18, '7', 82, 'Active'),
-(20, '8', 82, 'Active'),
-(23, '4', 95, 'Active'),
-(24, '5', 95, 'Active'),
-(25, '6', 95, 'Active'),
-(26, '7', 95, 'Active'),
-(27, '1', 82, 'Active'),
-(28, '2', 82, 'Active'),
-(29, '9', 82, 'Active'),
-(30, '10', 82, 'Active'),
-(31, '11', 82, 'Active'),
-(32, '3', 95, 'Active'),
-(33, '8', 95, 'Active'),
-(34, '12', 82, 'Active'),
-(35, '13', 82, 'Active'),
-(36, 'Ton', 8, 'Active'),
-(37, '2', 95, 'Active'),
-(38, '10', 95, 'Active'),
-(39, '9', 95, 'Active'),
-(40, '11', 95, 'Active'),
-(41, '12', 95, 'Active'),
-(42, '13', 95, 'Active'),
-(43, '1', 95, 'Active'),
-(45, '500gm', 120, 'Active'),
-(46, '250gm', 120, 'Active'),
-(47, '1ltr', 120, 'Active'),
-(48, '500ml', 120, 'Active'),
-(49, '10 Tea bags', 120, 'Active'),
-(51, '1kg', 120, 'Active'),
-(52, '100 Tea bags', 120, 'Active'),
-(53, '25 Tea bags', 120, 'Active'),
-(55, '100gm', 120, 'Active'),
-(56, '50gm', 120, 'Active'),
-(57, '200gm', 120, 'Active'),
-(58, '450ml', 120, 'Active'),
-(59, '40gm', 120, 'Active'),
-(60, '320gm', 120, 'Active'),
-(61, '85gm', 120, 'Active'),
-(62, '145gm', 120, 'Active'),
-(63, '3x200gm', 120, 'Active'),
-(64, '3x150gm', 120, 'Active'),
-(65, '225ml', 120, 'Active'),
-(66, '140ml', 120, 'Active'),
-(67, '250ml', 120, 'Active'),
-(68, '300gm', 120, 'Active'),
-(69, '175gm', 120, 'Active'),
-(70, '110gm', 120, 'Active'),
-(71, '150gm', 120, 'Active'),
-(72, '80gm', 120, 'Active'),
-(73, '90gm', 120, 'Active'),
-(74, '300ml', 120, 'Active'),
-(75, '1nos', 120, 'Active'),
-(76, '3x50gm', 120, 'Active'),
-(77, '3x354ml', 120, 'Active'),
-(78, '170gm', 120, 'Active'),
-(79, '75gm', 120, 'Active'),
-(80, '2kg', 120, 'Active'),
-(81, '200ml', 120, 'Active'),
-(82, '70ml', 120, 'Active'),
-(83, '237ml', 120, 'Active'),
-(84, '60gm', 120, 'Active'),
-(85, '230ml', 120, 'Active'),
-(86, '125gm', 120, 'Active'),
-(87, '240ml', 120, 'Active'),
-(88, '4x75gm', 120, 'Active'),
-(89, '2x55ml', 120, 'Active'),
-(90, '3x215ml', 120, 'Active'),
-(91, '2x75gm', 120, 'Active'),
-(93, '65gm', 120, 'Active'),
-(94, '10gm', 120, 'Active'),
-(95, '100ml', 120, 'Active'),
-(96, '4x4gm', 120, 'Active'),
-(97, '50ml', 120, 'Active'),
-(98, '75ml', 120, 'Active'),
-(99, '35gm', 120, 'Active'),
-(100, 'Gms', 144, 'Active'),
-(101, '1 Kg', 5, 'Active'),
-(102, '5 Kg', 5, 'Active'),
-(103, '50gm', 118, 'Active'),
-(104, '100gm', 118, 'Active'),
-(105, '60ml', 118, 'Active'),
-(106, '120ml', 118, 'Active'),
-(107, '1ltr', 118, 'Active'),
-(108, '500ml', 118, 'Active'),
-(109, '200ml', 118, 'Active'),
-(110, '200gm', 118, 'Active'),
-(111, '250gm', 118, 'Active'),
-(112, '125gm', 118, 'Active'),
-(113, '2 Pc', 193, 'Active'),
-(114, '4 Pc', 193, 'Active'),
-(115, 'Half', 193, 'Active'),
-(116, 'Full', 193, 'Active');
+INSERT INTO `fz_dimension` (`pid`, `name`, `status`) VALUES
+(117, 'S', 'Active'),
+(118, 'M', 'Active'),
+(119, 'L', 'Active'),
+(120, 'XL', 'Active'),
+(121, '2XL', 'Active'),
+(122, '3XL', 'Active');
 
 -- --------------------------------------------------------
 
@@ -1113,7 +1023,8 @@ CREATE TABLE `fz_images` (
 
 INSERT INTO `fz_images` (`id`, `image`, `path`, `remark`, `store_user_id`) VALUES
 (2, '121771459109870.jpg', 'product', '', 0),
-(3, '44481459109895.jpg', 'product', '', 0);
+(3, '44481459109895.jpg', 'product', '', 0),
+(4, '74361459676202.png', 'category', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1355,7 +1266,11 @@ CREATE TABLE `fz_products` (
   `kf3` varchar(200) NOT NULL,
   `kf4` varchar(200) NOT NULL,
   `kf5` varchar(200) NOT NULL,
+  `colors` varchar(300) NOT NULL,
+  `front` varchar(100) NOT NULL,
+  `back` varchar(100) NOT NULL,
   `url` varchar(255) DEFAULT NULL,
+  `psize` varchar(300) NOT NULL,
   `status` enum('Active','Inactive') DEFAULT 'Inactive',
   `submitdate` int(11) NOT NULL,
   `price` float NOT NULL
@@ -1365,29 +1280,8 @@ CREATE TABLE `fz_products` (
 -- Dumping data for table `fz_products`
 --
 
-INSERT INTO `fz_products` (`pid`, `cat_id`, `title`, `meta_title`, `meta_keyword`, `meta_description`, `kf1`, `kf2`, `kf3`, `kf4`, `kf5`, `url`, `status`, `submitdate`, `price`) VALUES
-(1, 11, 'T-Shirts & Hoodies', 'T-Shirts & Hoodies', 'T-Shirts & Hoodies', 'T-Shirts & Hoodies', 'Plain colour t-shirts are 100% Cotton.', 'Ethically sourced', 'Slim fit, but if that''s not your thing, order a size up', '4.2oz/145g, but if that''s too light, try our heavier classic tee.', 'Heather Grey is 90% Cotton/10% Polyester, Charcoal Heather is 52% Cotton/48% Polyester', 't-shirts-hoodies', 'Active', 1459107603, 1600);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `fz_products_cimage`
---
-
-CREATE TABLE `fz_products_cimage` (
-  `pid` int(11) NOT NULL,
-  `prod_id` int(11) NOT NULL,
-  `color_id` varchar(11) NOT NULL,
-  `front` varchar(100) NOT NULL,
-  `back` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `fz_products_cimage`
---
-
-INSERT INTO `fz_products_cimage` (`pid`, `prod_id`, `color_id`, `front`, `back`) VALUES
-(2, 0, '6', '121771459109870.jpg', '44481459109895.jpg');
+INSERT INTO `fz_products` (`pid`, `cat_id`, `title`, `meta_title`, `meta_keyword`, `meta_description`, `kf1`, `kf2`, `kf3`, `kf4`, `kf5`, `colors`, `front`, `back`, `url`, `psize`, `status`, `submitdate`, `price`) VALUES
+(1, 11, 'T-Shirts & Hoodies', 'T-Shirts & Hoodies', 'T-Shirts & Hoodies', 'T-Shirts & Hoodies', 'Plain colour t-shirts are 100% Cotton.', 'Ethically sourced', 'Slim fit, but if that''s not your thing, order a size up', '4.2oz/145g, but if that''s too light, try our heavier classic tee.', 'Heather Grey is 90% Cotton/10% Polyester, Charcoal Heather is 52% Cotton/48% Polyester', 'Blue,White,Yellow,Dark Black', '121771459109870.jpg', '44481459109895.jpg', 't-shirts-hoodies', 'S,M,XL,2XL', 'Active', 1460576446, 1600);
 
 -- --------------------------------------------------------
 
@@ -1432,6 +1326,7 @@ CREATE TABLE `fz_setting` (
   `company` varchar(255) DEFAULT NULL,
   `address` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
+  `pfp` float NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `paypal` varchar(255) NOT NULL,
   `fb` varchar(255) DEFAULT NULL,
@@ -1447,8 +1342,8 @@ CREATE TABLE `fz_setting` (
 -- Dumping data for table `fz_setting`
 --
 
-INSERT INTO `fz_setting` (`id`, `company`, `address`, `phone`, `email`, `paypal`, `fb`, `tw`, `lin`, `gp`, `yt`, `mode`, `registrationBy`) VALUES
-(1, 'Neo Commerce Private Limited', 'Shop No. 25, DDA Market,\r\nB Block, Preet Vihar,\r\nDelhi - 110092', '9711566000', 'arunmehtaca@gmail.com', 'sanjay.vns1987@gmail.com', 'https://www.facebook.com/sharer/sharer.php?u=', 'https://twitter.com', 'https://twitter.com/home?status=', 'http://plus.google.com', 'http://www.youtube.com', 'testing', 'coupon');
+INSERT INTO `fz_setting` (`id`, `company`, `address`, `phone`, `pfp`, `email`, `paypal`, `fb`, `tw`, `lin`, `gp`, `yt`, `mode`, `registrationBy`) VALUES
+(1, 'Run Orginal Private Limited', 'Run Orginal Private Limited.\r\nDelhi - 110092', '9891617198', 20, 'sanjay.vns1987@gmail.com', '20', 'https://www.facebook.com/sharer/sharer.php?u=', 'https://twitter.com', 'https://twitter.com/home?status=', 'http://plus.google.com', 'http://www.youtube.com', 'testing', 'coupon');
 
 -- --------------------------------------------------------
 
@@ -1462,6 +1357,32 @@ CREATE TABLE `fz_subscribe_list` (
   `status` enum('Active','inactive') COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'Active',
   `submitdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fz_user`
+--
+
+CREATE TABLE `fz_user` (
+  `pid` int(11) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(25) NOT NULL,
+  `news` enum('No','Yes') NOT NULL DEFAULT 'No',
+  `coupon` enum('No','Yes') NOT NULL DEFAULT 'No',
+  `reg_time` bigint(20) NOT NULL,
+  `status` enum('Inactive','Active') NOT NULL DEFAULT 'Inactive'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `fz_user`
+--
+
+INSERT INTO `fz_user` (`pid`, `username`, `email`, `password`, `news`, `coupon`, `reg_time`, `status`) VALUES
+(1, 'sanjay', 'sanjay.vns1987@gmail.com', 'password@1234', 'Yes', 'Yes', 1460489363, 'Inactive'),
+(2, 'e4@', 'e4@gmail.com', '1234234wwww', 'Yes', 'Yes', 1460663558, 'Inactive'),
+(3, 'ajay3647', 'sanjay@abc.com', 'ajay3647', 'No', 'No', 1461392602, 'Inactive');
 
 --
 -- Indexes for dumped tables
@@ -1552,12 +1473,6 @@ ALTER TABLE `fz_products`
   ADD PRIMARY KEY (`pid`);
 
 --
--- Indexes for table `fz_products_cimage`
---
-ALTER TABLE `fz_products_cimage`
-  ADD PRIMARY KEY (`pid`);
-
---
 -- Indexes for table `fz_product_price`
 --
 ALTER TABLE `fz_product_price`
@@ -1582,6 +1497,12 @@ ALTER TABLE `fz_subscribe_list`
   ADD PRIMARY KEY (`pid`);
 
 --
+-- Indexes for table `fz_user`
+--
+ALTER TABLE `fz_user`
+  ADD PRIMARY KEY (`pid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1594,12 +1515,12 @@ ALTER TABLE `fz_administrator`
 -- AUTO_INCREMENT for table `fz_admin_lostlogin`
 --
 ALTER TABLE `fz_admin_lostlogin`
-  MODIFY `aid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `aid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `fz_category`
 --
 ALTER TABLE `fz_category`
-  MODIFY `pid` int(123) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `pid` int(123) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `fz_city`
 --
@@ -1609,7 +1530,7 @@ ALTER TABLE `fz_city`
 -- AUTO_INCREMENT for table `fz_color`
 --
 ALTER TABLE `fz_color`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `fz_contact`
 --
@@ -1624,7 +1545,7 @@ ALTER TABLE `fz_country`
 -- AUTO_INCREMENT for table `fz_dimension`
 --
 ALTER TABLE `fz_dimension`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 --
 -- AUTO_INCREMENT for table `fz_faq`
 --
@@ -1639,7 +1560,7 @@ ALTER TABLE `fz_gift_voucher`
 -- AUTO_INCREMENT for table `fz_images`
 --
 ALTER TABLE `fz_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `fz_members`
 --
@@ -1650,11 +1571,6 @@ ALTER TABLE `fz_members`
 --
 ALTER TABLE `fz_products`
   MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `fz_products_cimage`
---
-ALTER TABLE `fz_products_cimage`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `fz_product_price`
 --
@@ -1675,6 +1591,11 @@ ALTER TABLE `fz_setting`
 --
 ALTER TABLE `fz_subscribe_list`
   MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `fz_user`
+--
+ALTER TABLE `fz_user`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -7,7 +7,7 @@
     <meta name="keywords" content="User Profile - Run Original" />
     <meta name="description" content="User Profile - Run Original" />
 	
-    <?php include_once SITE_FS_PATH . "/common_css.php"; ?>
+    <?php include_once "inc/common_css.php"; ?>
 </head>
 <body>
 
@@ -29,23 +29,20 @@
     <div class="container">
         <div class="col-md-12">
             <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
-                <img src="images/profile1.png"/>
+			<?php
+				if($image and is_file($_SERVER['DOCUMENT_ROOT'].SITE_SUB_PATH."uploaded_files/user/".$image)==true){
+					$path = SITE_PATH."uploaded_files/user/".$image;
+				}else{
+					$path = SITE_PATH."images/profile1.png";
+				}
+					?>
+					
+                <img src="<?=$path?>" style="max-height:117px; max-width:117px;"/>
 
-                <h2>User Name</h2>
-                <h4><span>City</span><span>Country</span></h4>
+                <h2><?=$username?></h2>
+                <h4><span><?=($city)?$city.',':''?></span><span>India</span></h4>
             </div>
-            <div class="pull-right">
-                <ul class="nav pull-right">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit<b
-                                class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Edit Your Profile</a></li>
-                            <li><a href="#"> Display Setting</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
+             
             <!--end of pull right-->
         </div>
         <!--end of col 12-->
@@ -79,8 +76,8 @@
                             <h3>Welcome to your very own corner of Run Orignal. Here you'll find your public profile,
                                 portfolio & shop.</h3>
                             <h5>Tell us Little about yourself and your work.</h5>
-                            <a href="#"><i class="fa fa-edit"></i> EDIT</a>
-                            <h5><span>Joined:</span> March 2016</h5>
+                            <a href="<?=SITE_PATH?>edit-profile"><i class="fa fa-edit"></i> EDIT</a>
+                            <h5><span>Joined:</span> <?=date("d M, Y",$reg_time)?></h5>
                         </div>
                         <!--end of col 6-->
                         <div class="col-md-6">
@@ -205,7 +202,7 @@
 <!--end of profile tabs new-->
 <?php include_once "inc/footer.php"; ?>
 </body>
-<?php include_once SITE_FS_PATH . "/common_js.php" ?>
+<?php include_once "inc/common_js.php" ?>
 <script>
     var dm1Src = "images/brown-tshirt.jpg";
     var dm2Src = "images/brown-tshirt.jpg";

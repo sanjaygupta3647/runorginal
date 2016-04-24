@@ -11,14 +11,15 @@
 					<?php if(isset($_SESSION['uid']) && $_SESSION['uid'] > 0){
 					
 					$userData =$cms->db_query("select * from #_user where pid='".$_SESSION['uid']."' ");
-					$u=$cms->db_fetch_array($userData);
+					$u=$cms->db_fetch_array($userData); extract($u);
 					 
 					
 					
 					?>
-					  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?=$u['username']?> <b class="caret"></b></a>
+					  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?=$username?> <b class="caret"></b></a>
                         <ul class="dropdown-menu"> 
-                            <li><a href="profile">Profile</a></li>
+                            <li><a href="profile">Profile Summary</a></li>
+							<li><a href="edit-profile">Edit Profile</a></li>
                             <li><a href="sign-out">Sign out</a></li>
                         </ul>
                     </li> 

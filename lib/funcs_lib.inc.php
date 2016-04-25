@@ -728,106 +728,13 @@ class DAL {
 	}
 	
 	
-	public function date_dropdown($pre, $selected_date = '', $start_year='', $end_year = '', $sort = 'asc') {
-		$cur_date =	date("Y-m-d");
-		$cur_date_day =	substr($cur_date, 8, 2);
-		$cur_date_month	= substr($cur_date,	5, 2);
-		$cur_date_year = substr($cur_date, 0, 4);
-	
-		if ($selected_date != '') {
-			$selected_date_day = substr($selected_date,	8, 2);
-			$selected_date_month = substr($selected_date, 5, 2);
-			$selected_date_year	= substr($selected_date, 0,	4);
-		}
-		$date_dropdown	.= $this->month_dropdown($pre	. "month", $selected_date_month);
-		$date_dropdown	.= $this->day_dropdown($pre .	"day", $selected_date_day);
-		// echo($pre . "year: ". $selected_date_year);
-		$date_dropdown	.= $this->year_dropdown($pre . "year", $selected_date_year, $start_year,	$end_year,	$sort);
-		return $date_dropdown;
-	}
+	 
 	
 	
-	public function month_dropdown($name,	$selected_date_month = '', $extra='') {
-		global $ARR_MONTHS;
-	
-		$date_dropdown	= "	<select	name='$name' $extra> <option value='0'>Month</option>";
-		$i = 0;
-		foreach ($ARR_MONTHS as $key => $value) {
-			$date_dropdown	.= " <option ";
-			if ($key == $selected_date_month) {
-				$date_dropdown	.= " selected ";
-			}
-			$date_dropdown	.= " value='" .	str_pad($key, 2, "0",	STR_PAD_LEFT) .	"'>$value</option>";
-		}
-		$date_dropdown	.= "</select>";
-		return $date_dropdown;
-	}
+ 
 	
 	
-	public function day_dropdown($name, $selected_date_day = '', $extra='') {
-		$date_dropdown	.= "<select	name='$name' $extra>";
-		$date_dropdown	.= "<option	value='0'>Date</option>";
-		for($i = 1;$i <= 31;$i++) {
-			//$s = date('S', mktime(1, 0,	0, 3, $i, 1970));
-			$date_dropdown	.= " <option ";
-			if ($i == $selected_date_day) {
-				$date_dropdown	.= " selected ";
-			}
-			$date_dropdown	.= " value='" .	str_pad($i,	2, "0",	STR_PAD_LEFT) .	"'>" . $i .	$s . "</option>";
-		}
-		$date_dropdown	.= "</select>";
-		return $date_dropdown;
-	}
-	
-	
-	public function year_dropdown($name, $selected_date_year = '', $start_year =	'',	$end_year = '', $extra='') {
-		if ($start_year	== '') {
-			$start_year	= DEFAULT_START_YEAR;
-		}
-	
-		if ($end_year == '') {
-			$end_year =	DEFAULT_END_YEAR;
-		}
-	
-		$date_dropdown	.= "<select	name='$name' $extra>";
-		$date_dropdown	.= "<option	value='0'>Year</option>";
-	
-		for($i = $start_year; $i <= $end_year; $i++) {
-			$date_dropdown	.= " <option ";
-			if ($i == $selected_date_year) {
-				$date_dropdown	.= " selected ";
-			}
-			$date_dropdown	.= " value='" .	str_pad($i,	2, "0",	STR_PAD_LEFT) .	"'>" . str_pad($i, 2, "0", STR_PAD_LEFT) .	"</option>";
-		}
-		$date_dropdown	.= "</select>";
-		return $date_dropdown;
-	}
-	
-	
-	public function time_dropdown($pre, $selected_time = '') {
-		// echo("<br>selected_time:$selected_time");
-		if ($selected_time != '' &&	$selected_time != ':') {
-			$selected_hour = substr($selected_time,	0, 2);
-			$selected_minute = substr($selected_time, 3, 2);
-			/*
-			if($selected_hour >11){
-				$selected_ampm = "PM";
-				$selected_hour -= 12;
-			}else{
-				$selected_ampm = "AM";
-			}
-			if($selected_hour==0){
-				$selected_hour = 12;
-			}
-			*/
-		}
-		$str .= $this->hour_dropdown($pre, $selected_hour);
-		$str .= '<b>:</b>';
-		$str .= $this->minute_dropdown($pre, $selected_minute);
-		return $str;
-		// echo	"<br>$selected_hour, $selected_minute $selected_ampm <br>";
-	}
-	
+   
 	
 	
 	public function get_qry_str($over_write_key = array(),	$over_write_value =	array()) {
@@ -1339,21 +1246,20 @@ class DAL {
 		}
 	}
 	
-	public function showmess(){
-		if($_SESSION['sessmsg']){
-			echo "<table width='100%'>";
-			echo "<tr>";
-			echo "<td class='error-item'><span>";
-			echo $_SESSION['sessmsg'];
-			echo "</span></td>";
-			echo "</tr>";
-			echo "</table>";
-			$_SESSION['sessmsg'] = '';
-			unset($_SESSION['sessmsg']);
-		}
+	public function showmess(){  
+		   if($_SESSION['sessmsg'] && $_SESSION['type']){
+		   if($_SESSION['type']=='s'){ $conds = 'background-color: green;';}else{$conds = 'background-color: rgba(202, 0, 0, 0.94);';}
+				$prnt =  '<div style="width: 100%;color: #fff; padding: 10px; font-size: 14px; '.$conds.'">'.$_SESSION['sessmsg'].'</div>';
+				echo $prnt;
+				$_SESSION['sessmsg'] = '';
+				$_SESSION['type'] = '';
+				unset($_SESSION['sessmsg']);
+				unset($_SESSION['type']);
+		   } 
 	}
-	public function sessset($val){
+	public function sessset($val,$cond){
 		$_SESSION['sessmsg'] = $val;
+		$_SESSION['type'] = $cond;
 	}
 	public function alt($val){
 		return 'alt="'.$val.'" title="'.$val.'"';
@@ -1454,34 +1360,7 @@ class DAL {
 	 
 	
  
-	function getRemainDays($date){
-		$startTimeStamp = strtotime($date);
-		$endTimeStamp = time(); 
-		$timeDiff = abs($endTimeStamp - $startTimeStamp); 
-		$numberDays = $timeDiff/86400;  // 86400 seconds in one day 
-		// and you might want to convert to integer
-		$numberDays = intval($numberDays);
-		return $numberDays;
-	}
-	function getBrandAdmin($brandid){
-			$brand_owner = $this->getSingleresult("select brand_owner from #_brand where pid = '".$brandid."'"); 
-			if($brand_owner>0){
-				$brandemail = $this->getSingleresult("select email_id from #_store_user where  pid = '".$brand_owner."'");
-				return $brandemail;			
-			}else{
-			return SITE_MAIL;
-			}
-			return SITE_MAIL; 
-	}
-	function getBradcum($id){
-			global $catarr; 
-			$catarr[] = $id;
-			$getParent = $this->getSingleresult("select parentId from #_category where pid='$id'");
-			if($getParent){
-			$this->getBradcum($getParent);
-			} 
-			return array_reverse($catarr); 
-	}
+	   
 	  
 	function getList($catId,$name){
 						$prosubcat=$this->db_query("select pid,name from #_category where parentId='".$catId."' order by porder");
@@ -1913,6 +1792,15 @@ function breadcrumbs($text = '<font line-height: 24px;font-size: 18px;font-weigh
 		 $bc = str_replace('&raquo;<a href="/member/catalog" rel="v:url" property="v:title"> </a>','', $bc);
 		//Return the result 
 		 return $bc;
+}
+
+function getSubscriptionlist($user_id){
+    $array = array();
+	$rsAdmin=$this->db_query("select stype from #_subscription where user_id='".$user_id."' ");
+	while($arrAdmin=$this->db_fetch_array($rsAdmin)){
+		$array[] = $arrAdmin[stype];
+	}
+	return $array;
 }
  
     

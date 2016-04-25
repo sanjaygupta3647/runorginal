@@ -29,7 +29,7 @@
     <meta name="author" content="<?=(SITE_COMPANY)?SITE_COMPANY:''?> CDI" />
     <meta name="keywords" content="%%keywords%%" />
     <meta name="description" content="%%description%%" />
-    <?php include_once SITE_FS_PATH . "/common_css.php"; ?>
+    <?php include_once "inc/common_css.php"; ?>
 </head>
 <body>
 
@@ -257,7 +257,7 @@
         </div>
     </div>
 </section>
-<?php include_once "footer.php"; ?>
+<?php  include_once "inc/footer.php"; ?>
 </body>
-<?php include_once SITE_FS_PATH . "/common_js.php" ?>
+<?php  include_once "inc/common_js.php" ?>
 </html>

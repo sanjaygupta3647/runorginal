@@ -109,18 +109,7 @@ if(cat_id){
    var red = "<?=SITE_PATH_ADM.CPAGE?>"+ur;
    window.location = red;
 });
-$("#pcatId").change(function(){
-var catid = $(this).val();
-	$.ajax({ 
-	url: '<?=SITE_PATH_ADM.CPAGE?>/ajax.php?cat_id='+catid, 
-	success: function (data) {
- 		$("#ajaxDiv").html(data); 
-	},
-	error: function (request, status, error) {
-	alert(request.responseText);
-	}
-	});  
-});
+ 
 </script>
 </body>
 </html>

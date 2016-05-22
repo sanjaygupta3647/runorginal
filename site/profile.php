@@ -1,7 +1,11 @@
+<?php 
+	$cms->checkLogin();
+	 
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>User Profile - Run Original</title><!--%%title%%-->
+    <title>User Profile - Run Original</title> 
     <base href="<?=SITE_PATH?>">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <meta name="keywords" content="User Profile - Run Original" />
@@ -57,7 +61,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
                     <li><a data-toggle="tab" href="#portfolio">Portfolio</a></li>
-                    <li><a data-toggle="tab" href="#shop">Shop</a></li>
+                    <li><a   href="<?=SITE_PATH_USER.$items[0]?>/shop">Shop</a></li>
                     <li><a data-toggle="tab" href="#journal">Journal</a></li>
                     <li><a data-toggle="tab" href="#favorite">Favorites</a></li>
                     <li><a data-toggle="tab" href="#following">Followig</a></li>
@@ -76,7 +80,7 @@
                             <h3>Welcome to your very own corner of Run Orignal. Here you'll find your public profile,
                                 portfolio & shop.</h3>
                             <h5>Tell us Little about yourself and your work.</h5>
-                            <a href="<?=SITE_PATH?>edit-profile"><i class="fa fa-edit"></i> EDIT</a>
+                            <a href="<?=SITE_PATH_USER?>edit-profile"><i class="fa fa-edit"></i> EDIT</a>
                             <h5><span>Joined:</span> <?=date("d M, Y",$reg_time)?></h5>
                         </div>
                         <!--end of col 6-->
@@ -93,13 +97,18 @@
                             </div>
                             <!--end of custom search input-->
                             <div class="recently-work">
-                                <h3>Recently work <a class="pull-right" href="#">Add New Work <i
+                                <h3>Recently work <a class="pull-right" href="<?=SITE_PATH_USER?>add-new-work">Add New Work <i
                                             class="fa fa-plus-circle"></i></a></h3>
 
-                                <div class="recentwork-box">
-                                    <div class="col-md-4"><img src="images/1.png" class="img-responsive"/></div>
-                                    <div class="col-md-4"><img src="images/1.png" class="img-responsive"/></div>
-                                    <div class="col-md-4"><img src="images/1.png" class="img-responsive"/></div>
+                                <div class="recentwork-box"><?php
+								$workQry=$cms->db_query("select pid, image from #_user_graphics where user_id='".$_SESSION['uid']."' order by pid desc ");
+								if(mysql_num_rows($workQry)){
+									while($w=$cms->db_fetch_array($workQry)){
+										?><div class="col-md-4"><a href="<?=SITE_PATH_USER?>add-new-work/?image=<?=$w[pid]?>"><img src="<?=SITE_PATH?>uploaded_files/graphics/<?=$w[image]?>" width="100"  style="max-height:100px;" class="img-responsive"/></a></div> <?php
+									}
+									 
+								}?>
+                                    
                                 </div>
                             </div>
                             <!--end of recently work-->
@@ -115,24 +124,50 @@
                             <div class="col-md-3">
                                 <div class="portfolio-box-000">
                                     <h4>Collections</h4>
-                                    <a href="#">New Collections...</a>
+                                     
 
                                     <div class="under-box-000">
                                         <h4>Refine Your Search</h4>
                                         <h4 class="top-tags">Top Tags <i class="fa fa-plus"></i></h4>
+										<ul style="list-style-type: none;">
+										       <?php 
+											    $tagArr = $cms->getAlltags($items[0]);  
+												if(count($tagArr)){
+													?> <?php
+													foreach($tagArr as $val ){
+														 ?> <li><a href="#" style="text-decoration: none;"><?=$val?></a></li><?php
+													}	
+												}else{
+												    ?><li><a href="#" style="text-decoration: none;">No tags Available</a></li><?php
+												}
+												
+												?> 
+										     
+										</ul>
+                                      
+										<div class="form-group">
+											<label for="sel1">Filter by Median</label>
+											<?php $catArr = $cms->getAvailableCategory($items[0]);
+ ?>
+											<select class="form-control" id="sel1">
+											    
+											    <?php 
+												if(!count($catArr)) $catArr = array('0');
+												$catQry=$cms->db_query("select pid, name from #_category where pid in   (".implode(',',$catArr).")");
+												if(mysql_num_rows($catQry)){
+													?><option value="">--Select category--</option><?php
+													while($c=$cms->db_fetch_array($catQry)){
+														 ?><option value="<?=$c[pid]?>"><?=$c[name]?></option><?php
+													}	
+												}else{
+												    ?><option>No Further Filter Available</option><?php
+												}
+												
+												?> 
+											</select>
+										</div>
 
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="sel1">Filter by Median</label>
-                                                <select class="form-control" id="sel1">
-                                                    <option>Show All</option>
-                                                    <option>Photography</option>
-                                                    <option>Design & Illustration</option>
-                                                    <option>Drawing</option>
-                                                </select>
-                                            </div>
-
-                                        </form>
+                                         
 
                                     </div>
                                 </div>
@@ -150,16 +185,41 @@
                                     <div class="tab-content">
                                         <div id="topselling" class="tab-pane fade">
 
+										<?php
+										$workQry=$cms->db_query("select pid, image from #_user_graphics where user_id='".$_SESSION['uid']."' order by rand()");
+										if(mysql_num_rows($workQry)){
+											while($w=$cms->db_fetch_array($workQry)){
+												?><div class="col-md-4"><a href="<?=SITE_PATH?>add-new-work/?image=<?=$w[pid]?>"><img src="<?=SITE_PATH?>uploaded_files/graphics/<?=$w[image]?>" width="100"  style="max-height:100px;" class="img-responsive"/></a></div> <?php
+											}
+											 
+										}?>
+                                           
+
                                         </div>
                                         <!--end of topselling-->
                                         <div id="recent" class="tab-pane fade in active">
-                                            <div class="col-md-4"><a href="#"><img src="images/1.png"
-                                                                                   class="img-responsive"/></a></div>
-                                            <div class="col-md-4"></div>
-                                            <div class="col-md-4"></div>
+										<?php
+										$workQry=$cms->db_query("select pid, image from #_user_graphics where user_id='".$_SESSION['uid']."' order by pid desc ");
+										if(mysql_num_rows($workQry)){
+											while($w=$cms->db_fetch_array($workQry)){
+												?><div class="col-md-4"><a href="<?=SITE_PATH?>add-new-work/?image=<?=$w[pid]?>"><img src="<?=SITE_PATH?>uploaded_files/graphics/<?=$w[image]?>" width="100"  style="max-height:100px;" class="img-responsive"/></a></div> <?php
+											}
+											 
+										}?>
+                                           
                                         </div>
                                         <!--end of recent-->
                                         <div id="allpopular" class="tab-pane fade">
+
+										<?php
+										$workQry=$cms->db_query("select pid, image from #_user_graphics where user_id='".$_SESSION['uid']."' order by pid desc ");
+										if(mysql_num_rows($workQry)){
+											while($w=$cms->db_fetch_array($workQry)){
+												?><div class="col-md-4"><a href="<?=SITE_PATH?>add-new-work/?image=<?=$w[pid]?>"><img src="<?=SITE_PATH?>uploaded_files/graphics/<?=$w[image]?>" width="100"  style="max-height:100px;" class="img-responsive"/></a></div> <?php
+											}
+											 
+										}?>
+                                           
 
                                         </div>
                                         <!--end of all popular-->

@@ -78,11 +78,13 @@
 
 		<td align="center">
 		<?php if($front  and is_file($_SERVER['DOCUMENT_ROOT'].SITE_SUB_PATH."uploaded_files/orginal/".$front)==true){?>
-			<img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$front?>" height="50">
+			<img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$front?>" title="front" height="50">
 		<?php }?>
+		
+		|
 
 		<?php if($back  and is_file($_SERVER['DOCUMENT_ROOT'].SITE_SUB_PATH."uploaded_files/orginal/".$back)==true){?>
-			<img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$back?>" height="50">
+			<img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$back?>" title="back" height="50">
 		<?php }?>
 		
 		

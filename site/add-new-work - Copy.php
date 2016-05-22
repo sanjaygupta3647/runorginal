@@ -1,12 +1,9 @@
-<?php 
-error_reporting(1);
- 
-if(isset($_POST['title']) && $_POST['title'] !=""){ 
-    $_POST['title'] = trim($_POST['title']); 
-	$_POST['tag'] = trim($_POST['tag']); 
-    if($_POST['title']==""){
+<?php  die('test');
+if($cms->is_post_back()){ 
+    $err = "";
+    if(empty(trim($_POST['title']))){
 		$err .= "Please enter title";
-	}  
+	} 
 	if(!$err){	 
 	    $_POST[user_id] = $_SESSION['uid'];
 		$_POST[graphich_id] = $_GET['image'];
@@ -21,7 +18,7 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
 		}
 		
 		
-		if($_POST['tag']!=""){
+		if(!empty(trim($_POST[tag]))){
 		    $cms->db_query("delete from #_product_tags where submission_id='".$lastid."'"); 
 			$tags = explode(",",$_POST[tag]);
 			foreach($tags as $val){
@@ -36,9 +33,8 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
 		
 	}else{
 		$cms->sessset($err, 'e');
-	} 
-	 
-}  
+	}  
+} 
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -262,10 +258,7 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
 <?php  include_once "inc/footer.php"; ?>
 
 <?php  include_once "inc/common_js.php" ?>
-
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script> -->
-
-<script src="<?php echo SITE_PATH?>asset/js/jquery-ui.min-google.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script> 
 <script src="<?php echo SITE_PATH?>asset/js/validate.js" type="text/javascript"></script>
 <script>
 $('[data-load-remote]').on('click',function(e) {

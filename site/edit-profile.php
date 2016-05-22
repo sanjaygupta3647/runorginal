@@ -145,7 +145,7 @@ if($cms->is_post_back()){
                 
 
                 <div class="form-group">
-				    <?php $list  = $cms->getSubscriptionlist($_SESSION['uid']);?>
+				    <?php $list  = $cms->getSubscriptionlist($_SESSION['uid']); ?>
                     <div class="col-md-2"><label>Email Subscriptions</label></div>
                     <div class="col-md-10"> 
 					<label class="checkbox-inline"><input type="checkbox" <?=(in_array("artist_designer",$list))?'checked':''?> name="sub[]" value="artist_designer">Artists and designers newsletter</label><br/>

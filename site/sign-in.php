@@ -8,7 +8,7 @@ if ($cms->is_post_back()) {
             $_SESSION['uid'] = $res['pid'];
             $_SESSION['email'] = $res['email'];
             $_SESSION['username'] = $res['username'];
-            $cms->redir(SITE_PATH,true);
+            $cms->redir(SITE_PATH.$_SESSION[username]."/profile",true);
         }else{
             $header_alert = "Invalid username or password - Remember to use your username, not your email address.";
         }

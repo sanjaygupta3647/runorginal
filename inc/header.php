@@ -18,8 +18,8 @@
 					?>
 					  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?=$username?> <b class="caret"></b></a>
                         <ul class="dropdown-menu"> 
-                            <li><a href="profile">Profile Summary</a></li>
-							<li><a href="edit-profile">Edit Profile</a></li>
+                            <li><a href="<?=SITE_PATH_USER?>profile">Profile Summary</a></li>
+							<li><a href="<?=SITE_PATH_USER?>edit-profile">Edit Profile</a></li>
                             <li><a href="sign-out">Sign out</a></li>
                         </ul>
                     </li> 

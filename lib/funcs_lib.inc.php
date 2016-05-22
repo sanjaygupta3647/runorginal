@@ -1486,6 +1486,22 @@ function checkEmail($email){
 	if($check) return true;
 	else return false;
 }
+public function removeSlash($str) {
+ $badFriends = '/(\\\)/';
+ $str = preg_replace($badFriends, '', $str);
+ return $str;
+}
+function curPageURL() {
+	 $pageURL = 'http';
+	 if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+	 $pageURL .= "://";
+	 if ($_SERVER["SERVER_PORT"] != "80") {
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	 } else {
+	  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	 }
+	 return $pageURL;
+	}
 public function baseurl21($vals){
 		$vals = $this->removeSlash($vals);
 		$vals = "$vals";
@@ -1794,6 +1810,43 @@ function breadcrumbs($text = '<font line-height: 24px;font-size: 18px;font-weigh
 		 return $bc;
 }
 
+function checkLogin(){
+	if(empty($_SESSION[uid]))
+	header("Location:".SITE_PATH."sign-in");
+}
+
+
+function getAvailableCategory($username){
+	$array = array();
+	if(empty($username)) return $array;
+	
+    $getuserid  = $this->getSingleresult("select pid from #_user where username = '".$username."'");
+	$caTQuery  = "SELECT fz_products.cat_id from fz_products INNER JOIN fz_user_graphics_products on fz_user_graphics_products.porduct_id = fz_products.pid AND fz_products.status='Active' and fz_user_graphics_products.status='Active'  and fz_user_graphics_products.user_id='".$getuserid."' GROUP by fz_products.cat_id";
+	$rsAdmin=$this->db_query($caTQuery);
+	while($p=$this->db_fetch_array($rsAdmin)){
+		$array[] = $p['cat_id'];
+	}
+
+	return $array;
+
+
+}
+
+function getAlltags($username){
+	$array = array();
+	if(empty($username)) return $array;
+	
+    $getuserid  = $this->getSingleresult("select pid from #_user where username = '".$username."'");
+	$tagQuery  = "SELECT fz_product_tags.tag from fz_product_tags INNER join fz_user_submission on fz_product_tags.submission_id = fz_user_submission.pid and fz_user_submission.user_id='".$getuserid."' and fz_user_submission.status='Active'";
+	$rsAdmin=$this->db_query($tagQuery);
+	while($p=$this->db_fetch_array($rsAdmin)){
+		$array[] = $p['tag'];
+	}
+
+	return $array;
+
+
+}
 function getSubscriptionlist($user_id){
     $array = array();
 	$rsAdmin=$this->db_query("select stype from #_subscription where user_id='".$user_id."' ");

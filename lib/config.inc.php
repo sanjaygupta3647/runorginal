@@ -28,11 +28,13 @@
 	define('SITE_PATH_ADM', 'http://'.$HTTP_HOST.SITE_SUB_PATH.ADMIN_DIR); 
 	define('SITE_PATH_MEM', 'http://'.$HTTP_HOST.SITE_SUB_PATH.MEMBER_DIR);
 	define('SITE_PATH_BRAND', 'http://'.$HTTP_HOST.SITE_SUB_PATH.BRAND_DIR); 
+	define("SITE_PATH_USER",SITE_PATH.$_SESSION[username]."/");
 	
 	define('THUMB_CACHE_DIR', 'thumb_cache');
 	define('PLUGINS_DIR', 'lib/plugins');
 	define('UP_FILES_FS_PATH', SITE_FS_PATH.'/uploaded_files'); 
-	define('UP_FILES_FS_PATHPC', SITE_FS_PATH.'/uploads');
+	define('UP_FILES_GRAPHICS', UP_FILES_FS_PATH.'/graphics');
+	define('UP_FILES_USER_GRAPHICS', UP_FILES_FS_PATH.'/user-graphics');
 	define('UP_FILES_WS_PATH', SITE_WS_PATH.'/uploaded_files');
 
 	define('SITE_NAME', 'Run Orginal');

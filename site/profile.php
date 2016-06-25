@@ -61,7 +61,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
                     <li><a data-toggle="tab" href="#portfolio">Portfolio</a></li>
-                    <li><a   href="<?=SITE_PATH_USER.$items[0]?>/shop">Shop</a></li>
+                    <li><a   href="<?=SITE_PATH_USER?>shop">Shop</a></li>
                     <li><a data-toggle="tab" href="#journal">Journal</a></li>
                     <li><a data-toggle="tab" href="#favorite">Favorites</a></li>
                     <li><a data-toggle="tab" href="#following">Followig</a></li>

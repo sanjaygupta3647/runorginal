@@ -10,6 +10,7 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
 	if(!$err){	 
 	    $_POST[user_id] = $_SESSION['uid'];
 		$_POST[graphich_id] = $_GET['image'];
+
 		if($_POST['submission_id']){
 			$lastid = $_POST['submission_id']; 
 		    $cms->sqlquery("rs","user_submission",$_POST,"pid",$lastid); 
@@ -117,13 +118,17 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
 <style>
 .canvs2{ border: 0 none !important;
     position: relative;
-    right: 40%;
+    
     text-align: center;
-    top: 70%;
+    
     width: 100% !important;
     z-index: 1;} 
-.demo{width:150px; padding:5px; position:absolute;top:150px;left:300px}
+.demo{width:150px; padding:5px;cursor: move;  position:absolute;top:280px;left:300px}
+.demo:hover { border: 1px solid black;}
+.demo:after { border: 0px solid black;}
 #content{padding-bottom:3em}
+.selectColor{height:25px;width:25px;padding:10px;float:left; margin:5px; cursor:pointer;border:1px solid gray}
+
 </style>
 
 <?php if(isset($_GET[image])){ ?>
@@ -136,6 +141,13 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
                 <h3>Product Preview</h3>
             </div>
         </div>
+		
+		<div class="row"  style="text-align:center" id="changeImageDiv" > 
+		 
+         </div> 
+		 
+		 
+		 <br/>
         <div class="row">
 		<?php
 		$graphichImage = SITE_PATH."uploaded_files/graphics/".$cms->getSingleresult("select image  from #_user_graphics where pid='".$_GET['image']."' and user_id = '".$_SESSION['uid']."' ");
@@ -152,9 +164,9 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
 					 ?>
 				     
 					 <?php if(isset($graph)){
-					 		?> <div  id="image<?=$p[pid]?>"><img width="364" height="300"  src="<?=$UserGraphichImage?>"  /></div> <?php
+					 		?> <div  id="image<?=$p[pid]?>" style="max-width: 364px;max-height: 300px; " ><img width="364" height="300"  src="<?=$UserGraphichImage?>"  /></div> <?php
 					 } else{?>
-					 	<div id="image<?=$p[pid]?>" style="width: 364px;box-sizing: border-box; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;height: 300px;border: 1px solid #e6e6e6;cursor: pointer;position: relative;overflow: hidden;" >
+					 	<div id="image<?=$p[pid]?>" style="max-width: 364px;box-sizing: border-box; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;max-height: 300px;border: 1px solid #e6e6e6;cursor: pointer;position: relative;overflow: hidden;" >
 					 	   <img class="canvs" style="width:auto;"  src="<?=$graphichImage?>"  />
                     	   <img src="<?=SITE_PATH?>uploaded_files/orginal/<?=$p[front]?>" width="364" height="300"  /> 
 						  </div>
@@ -165,9 +177,13 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
                     <h4><?=$p[title]?></h4> <h6>07/Enabled</h6>
 
                     <div class="text-center edit-ena">
-                        <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal" data-load-remote="<?=SITE_PATH?>ms_file/edit-product?image1=<?=$p[front]?>&image2=<?=$graphichImage?>&graphich_id=<?=$_GET[image]?>&porduct_id=<?=$p[pid]?>&change_div=image<?=$p[pid]?>" data-remote-target="#myModal .modal-body"><i class="fa fa-edit"></i> Edit</a>  
-						 <?php if(isset($graph)){ ?>
-                        <a href="javascript:void(0);" class="btn btn-success"><i class="fa fa-minus-circle"></i> Disable</a>
+                        <a href="javascript:void(0);" onclick="javascript:loadChangeDiv('<?=SITE_PATH?>uploaded_files/orginal/<?=$p[front]?>','<?php echo $graphichImage;?>','<?=$p[pid]?>');" class="btn btn-default"   ><i class="fa fa-edit"></i> Edit</a>  
+						 <?php if(isset($graph)){
+						 $product_graphics_id = $cms->getSingleresult("select pid from #_user_graphics_products where graphich_id='".$_GET['image']."' and user_id = '".$_SESSION['uid']."'  and porduct_id='".$p[pid]."'");
+						 $statusP = $cms->getSingleresult("select status from #_user_graphics_products where graphich_id='".$_GET['image']."' and user_id = '".$_SESSION['uid']."'  and porduct_id='".$p[pid]."'");
+						 ?>
+                        <a href="javascript:void(0);" lang="<?=$product_graphics_id?>"  class="btn btn-success inableDisable" 
+						<?=($statusP=='Active')?"":'style="background-color: lightgray;"'?> ><i class="fa fa-<?=($statusP=='Active')?'minus':'plus'?>-circle"></i>  <?=($statusP=='Active')?'Disable':'Enable'?></a>
 						<?php }?>
                     </div>
                 </div>
@@ -175,29 +191,12 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
 			
 			<?php }?>
             
-			</div>
-             
+			</div> 
             
 </div>
 </section>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-             
-            <div class="modal-body"> 
-			<!-- Remote Body Part --> 
-			</div>
-            <div class="modal-footer">
-                <button type="button" id="closePopup"  class="btn btn-default" data-dismiss="modal">Close</button>
-                <input type="button" id="btnSave" class="btn btn-primary" value="Apply Changes"> 
-				<input type="button" id="imagesave" class="btn btn-primary" value="Save Changes" style="display:none;"> 
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
+
 
 <section class="detail-upload">
     <div class="container">
@@ -263,11 +262,18 @@ if(isset($_POST['title']) && $_POST['title'] !=""){
 
 <?php  include_once "inc/common_js.php" ?>
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script> -->
-
+ 
 <script src="<?php echo SITE_PATH?>asset/js/jquery-ui.min-google.js" type="text/javascript"></script>
 <script src="<?php echo SITE_PATH?>asset/js/validate.js" type="text/javascript"></script>
-<script>
+
+
+ <script src="<?php echo SITE_PATH?>asset/js/canvas/html2canvas.js" type="text/javascript"></script>
+ <script src="<?php echo SITE_PATH?>asset/js/canvas/base64.js" type="text/javascript"></script>
+ <script src="<?php echo SITE_PATH?>asset/js/canvas/canvas2image.js" type="text/javascript"></script>
+ <link rel="stylesheet" type="text/css" href="<?php echo SITE_PATH?>asset/css/jquery-ui.css"/>
+ 
+
+<script> 
 $('[data-load-remote]').on('click',function(e) {
     e.preventDefault();
     var $this = $(this);
@@ -275,6 +281,125 @@ $('[data-load-remote]').on('click',function(e) {
     if(remote) {
         $($this.data('remote-target')).load(remote);
     }
+});
+
+
+$(document).on("click",".selectColor", function(){ 
+	var getId = $(this).attr('id'); 
+	var html = $(this).html(); 
+	if(html){
+		$(this).html('');
+		$('#checkbox'+getId).val('');
+	}  
+	else {
+	    $('#checkbox'+getId).val(getId);
+		$(this).html('<i class="rb-font-icon icon-check"></i>'); 
+	}
+	 
+
+})
+$(document).on("click",".inableDisable", function(){ 
+	var getId = $(this).attr('lang'); 
+	var formData = {pid:getId};  
+	$.ajax({
+		url : "<?=SITE_PATH?>ms_file/pass/?action=changeStatus",
+		type: "POST",
+		data : formData,
+		success: function(data, textStatus, jqXHR){
+			data = $.trim(data);
+			if(data=='1') window.location.reload();
+		},
+		error: function (jqXHR, textStatus, errorThrown){
+				alert(errorThrown);
+		}
+	});
+
+})
+function loadChangeDiv(image1,image2,product_id){ 
+	var formData = {'product_id':product_id, 'image1':image1,"image2":image2};  
+	$.ajax({
+		url : "<?=SITE_PATH?>ms_file/pass/?action=imageWork",
+		type: "POST",
+		data : formData,
+		 beforeSend: function() { 
+        	$("#changeImageDiv").html('<image src="<?=SITE_PATH?>images/ajax-loader.gif">');
+   		 },
+		success: function(data, textStatus, jqXHR){ 
+			  $("#changeImageDiv").html(data);
+			  $('.demo').draggable().resizable();
+			  $('html,body').animate({
+				scrollTop: $("#changeImageDiv").offset().top},
+				'slow');
+				},
+		error: function (jqXHR, textStatus, errorThrown){
+				alert(errorThrown);
+		}
+	});
+}
+</script>
+
+<script>
+$(function(){   
+		
+		
+	  
+	    $(document).on("click","#btnSave", function(){ 
+			       $(".ui-resizable-se").hide();
+			  	   html2canvas($("#imagecontainer"), {
+					onrendered: function(canvas) {
+						theCanvas = canvas;
+						//document.body.appendChild(canvas);
+                        $("#imagecontainer").removeAttr('style');
+						  
+						$("#imagecontainer").html(canvas);
+						 
+						$("canvas").attr("id","testCanvas");
+						$("#canvasimage").val('1');
+						$("#btnSave").hide();
+						$("#imagesave").show();
+						$('html,body').animate({
+						scrollTop: $("#changeImageDiv").offset().top},
+						'slow');
+					}
+				});
+			 
+			
+		});
+
+		 
+	       $(document).on("click","#imagesave", function(){ 
+		   $("#imagesave").val('Saving Changes....');
+			var canvasData = testCanvas.toDataURL("image/png");
+				//alert(canvasData); 
+				var colors = "";
+				$(".hiddenColor").each(function(){
+					if($(this).val()){
+						colors += $(this).val()+',';
+					}
+					
+				});
+				var product_id = $("#product_id").val();
+				var ajax = new XMLHttpRequest();
+				ajax.open("POST",'<?=SITE_PATH?>ms_file/pass/?action=saveChanges&graphich_id=<?=$graphich_id?>&porduct_id='+product_id+'&colors='+colors,false);
+				ajax.onreadystatechange = function() {
+					if (ajax.readyState == XMLHttpRequest.DONE) {
+						var data = JSON.parse(ajax.responseText);
+						//$("#imagepath").val(x.thumbpath); 
+						//alert(data.image);
+						var changeDiv = '#<?=$change_div?>';
+						$(changeDiv).removeAttr('style');
+						var imagepath = '<img src="'+data.image+'" width="364" height="300"  />';
+						$(changeDiv).html(imagepath);
+						$("#btnSave").show();
+						$("#imagesave").hide();
+						window.location.reload(); 
+
+					}
+				}
+				ajax.setRequestHeader('Content-Type', 'application/upload');
+				ajax.send(canvasData);
+			
+		});  
 });
 </script>
 
